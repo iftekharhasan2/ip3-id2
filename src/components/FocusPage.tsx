@@ -193,20 +193,22 @@ export const FocusPage: React.FC<FocusPageProps> = ({
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Leaf':
-        return <Leaf className="w-6 h-6 text-[#2dd4bf]" />;
+        return <Leaf className="w-6 h-6 text-[#ff7e67]" />;
       case 'GraduationCap':
         return <GraduationCap className="w-6 h-6 text-[#ff7e67]" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-[#38bdf8]" />;
+        return <ShieldCheck className="w-6 h-6 text-[#ff7e67]" />;
       default:
         return <Layers className="w-6 h-6 text-[#ff7e67]" />;
     }
   };
 
   const getPillarAccent = (index: number) => {
-    if (index === 0) return { border: 'hover:border-[#2dd4bf]', tagBg: 'bg-[#2dd4bf]/10 text-[#2dd4bf] border-[#2dd4bf]/30', dot: 'bg-[#2dd4bf]' };
-    if (index === 1) return { border: 'hover:border-[#ff7e67]', tagBg: 'bg-[#ff7e67]/10 text-[#ff7e67] border-[#ff7e67]/30', dot: 'bg-[#ff7e67]' };
-    return { border: 'hover:border-[#38bdf8]', tagBg: 'bg-[#38bdf8]/10 text-[#38bdf8] border-[#38bdf8]/30', dot: 'bg-[#38bdf8]' };
+    return { 
+      border: 'hover:border-[#ff7e67]', 
+      tagBg: 'bg-[#ff7e67]/10 text-[#ff7e67] border-[#ff7e67]/30', 
+      dot: 'bg-[#ff7e67]' 
+    };
   };
 
   return (
@@ -275,7 +277,7 @@ export const FocusPage: React.FC<FocusPageProps> = ({
             {/* Quick Metrics Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 max-w-3xl mx-auto">
               <div className="p-3.5 rounded-2xl bg-[#081220] border border-slate-800 text-left">
-                <div className="text-xl font-extrabold text-[#2dd4bf]">3</div>
+                <div className="text-xl font-extrabold text-[#ff7e67]">3</div>
                 <div className="text-[11px] text-slate-400 font-medium">Core Strategic Pillars</div>
               </div>
               <div className="p-3.5 rounded-2xl bg-[#081220] border border-slate-800 text-left">
@@ -283,7 +285,7 @@ export const FocusPage: React.FC<FocusPageProps> = ({
                 <div className="text-[11px] text-slate-400 font-medium">Capital Mobilized</div>
               </div>
               <div className="p-3.5 rounded-2xl bg-[#081220] border border-slate-800 text-left">
-                <div className="text-xl font-extrabold text-[#38bdf8]">12+</div>
+                <div className="text-xl font-extrabold text-[#ff7e67]">12+</div>
                 <div className="text-[11px] text-slate-400 font-medium">Sovereign Jurisdictions</div>
               </div>
               <div className="p-3.5 rounded-2xl bg-[#081220] border border-slate-800 text-left">
@@ -486,15 +488,15 @@ export const FocusPage: React.FC<FocusPageProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div className="p-6 rounded-3xl bg-[#050a12] border border-slate-800 space-y-4 shadow-lg hover:border-[#2dd4bf] transition-all">
-              <div className="w-10 h-10 rounded-2xl bg-[#2dd4bf]/10 text-[#2dd4bf] border border-[#2dd4bf]/30 flex items-center justify-center">
+            <div className="p-6 rounded-3xl bg-[#050a12] border border-slate-800 space-y-4 shadow-lg hover:border-[#ff7e67] transition-all">
+              <div className="w-10 h-10 rounded-2xl bg-[#ff7e67]/10 text-[#ff7e67] border border-[#ff7e67]/30 flex items-center justify-center">
                 <Leaf className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-100">Green Municipal Finance</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Combining climate economics with municipal development funds (BMDF) to structure $140M in green municipal bonds for climate-resilient urban infrastructure.
               </p>
-              <div className="pt-2 text-xs font-mono text-[#2dd4bf] font-semibold">
+              <div className="pt-2 text-xs font-mono text-[#ff7e67] font-semibold">
                 Climate + Governance
               </div>
             </div>
@@ -512,15 +514,15 @@ export const FocusPage: React.FC<FocusPageProps> = ({
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-[#050a12] border border-slate-800 space-y-4 shadow-lg hover:border-[#38bdf8] transition-all">
-              <div className="w-10 h-10 rounded-2xl bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/30 flex items-center justify-center">
+            <div className="p-6 rounded-3xl bg-[#050a12] border border-slate-800 space-y-4 shadow-lg hover:border-[#ff7e67] transition-all">
+              <div className="w-10 h-10 rounded-2xl bg-[#ff7e67]/10 text-[#ff7e67] border border-[#ff7e67]/30 flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-100">Sovereign MERLA Dashboards</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 Deploying cabinet-level monitoring, evaluation, and learning platforms to give sovereign ministers live telemetry on multi-sector policy execution.
               </p>
-              <div className="pt-2 text-xs font-mono text-[#38bdf8] font-semibold">
+              <div className="pt-2 text-xs font-mono text-[#ff7e67] font-semibold">
                 Governance + MERLA
               </div>
             </div>

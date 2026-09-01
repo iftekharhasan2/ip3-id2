@@ -20,6 +20,7 @@ export { FOCUS_AREAS, SERVICES, PROJECTS } from '../data/policyData';
 import { FOCUS_AREAS, SERVICES, PROJECTS } from '../data/policyData';
 import type { FocusArea, ServiceSolution, ProjectItem, SectorCategory } from '../data/policyData';
 import { SystemsArchitectureSection } from './SystemsArchitectureSection';
+import { MethodologyTranslationSection } from './MethodologyTranslationSection';
 
 
 interface HeroTreeProps {
@@ -61,9 +62,10 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
         
         {/* Main Headline & Identity */}
         <div className="text-center max-w-4xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] text-xs font-semibold shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#ff7e67] animate-pulse" />
-            <span className="tracking-wide">Institute for Public Policy & Practice (IP3)</span>
+          <div>
+            <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+              INSTITUTE FOR PUBLIC POLICY &amp; PRACTICE (IP3)
+            </span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-100 tracking-tight leading-[1.15]">
@@ -122,24 +124,16 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
           <div className="hidden md:block relative w-full h-14 -mt-1.5 z-10 pointer-events-none">
             <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 56">
               {/* Left Branch */}
-              <path d="M 500,0 C 500,28 166,28 166,56" fill="none" stroke="url(#tree-grad-left)" strokeWidth="2.5" strokeDasharray="5 3" />
+              <path d="M 500,0 C 500,28 166,28 166,56" fill="none" stroke="url(#tree-grad-unified)" strokeWidth="2.5" strokeDasharray="5 3" />
               {/* Middle Branch */}
-              <path d="M 500,0 L 500,56" fill="none" stroke="url(#tree-grad-mid)" strokeWidth="2.5" />
+              <path d="M 500,0 L 500,56" fill="none" stroke="url(#tree-grad-unified)" strokeWidth="2.5" />
               {/* Right Branch */}
-              <path d="M 500,0 C 500,28 833,28 833,56" fill="none" stroke="url(#tree-grad-right)" strokeWidth="2.5" strokeDasharray="5 3" />
+              <path d="M 500,0 C 500,28 833,28 833,56" fill="none" stroke="url(#tree-grad-unified)" strokeWidth="2.5" strokeDasharray="5 3" />
 
               <defs>
-                <linearGradient id="tree-grad-left" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ff7e67" />
-                  <stop offset="100%" stopColor="#2dd4bf" />
-                </linearGradient>
-                <linearGradient id="tree-grad-mid" x1="0%" y1="0%" x2="0%" y2="100%">
+                <linearGradient id="tree-grad-unified" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#ff7e67" />
                   <stop offset="100%" stopColor="#ff7e67" />
-                </linearGradient>
-                <linearGradient id="tree-grad-right" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ff7e67" />
-                  <stop offset="100%" stopColor="#38bdf8" />
                 </linearGradient>
               </defs>
             </svg>
@@ -151,7 +145,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
             {/* Tree Branch 01: Green Transitions */}
             <div 
               onClick={() => scrollToBranch(0)}
-              className="bg-[#081220] rounded-3xl border border-slate-800 group overflow-hidden flex flex-col justify-between shadow-xl hover:border-[#2dd4bf] hover:shadow-2xl hover:shadow-[#2dd4bf]/10 transition-all duration-300 relative cursor-pointer"
+              className="bg-[#081220] rounded-3xl border border-slate-800 group overflow-hidden flex flex-col justify-between shadow-xl hover:border-[#ff7e67] hover:shadow-2xl hover:shadow-[#ff7e67]/10 transition-all duration-300 relative cursor-pointer"
             >
               <div className="relative h-40 overflow-hidden bg-[#050a12]/60 shrink-0">
                 <img
@@ -163,13 +157,13 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                 <div className="absolute inset-0 bg-gradient-to-t from-[#081220] via-[#081220]/40 to-transparent" />
                 
                 {/* Pillar Icon Badge */}
-                <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl flex items-center justify-center text-[#2dd4bf] border border-[#2dd4bf]/30 bg-[#081220]/95 backdrop-blur-md shadow-md">
+                <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl flex items-center justify-center text-[#ff7e67] border border-[#ff7e67]/30 bg-[#081220]/95 backdrop-blur-md shadow-md">
                   <Leaf className="w-5 h-5" />
                 </div>
                 
                 {/* Branch Number */}
-                <span className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-[#081220]/95 text-[#2dd4bf] border border-[#2dd4bf]/30 backdrop-blur-md shadow-xs flex items-center gap-1.5 font-mono">
-                  <GitBranch className="w-3 h-3 text-[#2dd4bf]" />
+                <span className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-[#081220]/95 text-[#ff7e67] border border-[#ff7e67]/30 backdrop-blur-md shadow-xs flex items-center gap-1.5 font-mono">
+                  <GitBranch className="w-3 h-3 text-[#ff7e67]" />
                   <span>Branch 01</span>
                 </span>
 
@@ -178,7 +172,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                   <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg bg-black/60 text-slate-100 border border-white/10 backdrop-blur-sm">
                     ESG Decarbonization
                   </span>
-                  <span className="text-[10px] font-mono text-[#2dd4bf] font-bold">
+                  <span className="text-[10px] font-mono text-[#ff7e67] font-bold">
                     Empirical CBA
                   </span>
                 </div>
@@ -186,13 +180,16 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
 
               <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4 bg-[#081220]">
                 <div className="space-y-2">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#2dd4bf] flex items-center gap-1.5">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#ff7e67] flex items-center gap-1.5">
                     <span>Green Transition Engine</span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#2dd4bf] transition-colors leading-snug">
+                  <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     Climate Action & ESG
                   </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p 
+                    className="text-xs text-slate-300 leading-relaxed text-glow-subtle"
+                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
+                  >
                     Green economics, firm-level tech adoption, circular economy, industrial decarbonization, and ESG compliance.
                   </p>
                 </div>
@@ -201,7 +198,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                 <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between">
                   <span className="text-[11px] font-semibold text-slate-400 group-hover:text-slate-100 transition-colors flex items-center gap-1">
                     <span>Explore Focus</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-[#2dd4bf] group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#ff7e67] group-hover:translate-x-1 transition-transform" />
                   </span>
                   <span className="text-[10px] font-mono text-slate-400">
                     4 Programs
@@ -254,7 +251,10 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                   <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     Educational Innovation
                   </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p 
+                    className="text-xs text-slate-300 leading-relaxed text-glow-subtle"
+                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
+                  >
                     Human developmental science, datafication of learning, blended learning rails, and TVET modernizations.
                   </p>
                 </div>
@@ -275,7 +275,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
             {/* Tree Branch 03: Data & Digital Governance */}
             <div 
               onClick={() => scrollToBranch(2)}
-              className="bg-[#081220] rounded-3xl border border-slate-800 group overflow-hidden flex flex-col justify-between shadow-xl hover:border-[#38bdf8] hover:shadow-2xl hover:shadow-[#38bdf8]/10 transition-all duration-300 relative cursor-pointer"
+              className="bg-[#081220] rounded-3xl border border-slate-800 group overflow-hidden flex flex-col justify-between shadow-xl hover:border-[#ff7e67] hover:shadow-2xl hover:shadow-[#ff7e67]/10 transition-all duration-300 relative cursor-pointer"
             >
               <div className="relative h-40 overflow-hidden bg-[#050a12]/60 shrink-0">
                 <img
@@ -287,13 +287,13 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                 <div className="absolute inset-0 bg-gradient-to-t from-[#081220] via-[#081220]/40 to-transparent" />
                 
                 {/* Pillar Icon Badge */}
-                <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl flex items-center justify-center text-[#38bdf8] border border-[#38bdf8]/30 bg-[#081220]/95 backdrop-blur-md shadow-md">
+                <div className="absolute top-3 left-3 w-10 h-10 rounded-2xl flex items-center justify-center text-[#ff7e67] border border-[#ff7e67]/30 bg-[#081220]/95 backdrop-blur-md shadow-md">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 
                 {/* Branch Number */}
-                <span className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-[#081220]/95 text-[#38bdf8] border border-[#38bdf8]/30 backdrop-blur-md shadow-xs flex items-center gap-1.5 font-mono">
-                  <GitBranch className="w-3 h-3 text-[#38bdf8]" />
+                <span className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-[#081220]/95 text-[#ff7e67] border border-[#ff7e67]/30 backdrop-blur-md shadow-xs flex items-center gap-1.5 font-mono">
+                  <GitBranch className="w-3 h-3 text-[#ff7e67]" />
                   <span>Branch 03</span>
                 </span>
 
@@ -302,7 +302,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                   <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-lg bg-black/60 text-slate-100 border border-white/10 backdrop-blur-sm">
                     Municipal Capacity
                   </span>
-                  <span className="text-[10px] font-mono text-[#38bdf8] font-bold">
+                  <span className="text-[10px] font-mono text-[#ff7e67] font-bold">
                     BMDF Data Trust
                   </span>
                 </div>
@@ -310,13 +310,16 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
 
               <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4 bg-[#081220]">
                 <div className="space-y-2">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#38bdf8] flex items-center gap-1.5">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#ff7e67] flex items-center gap-1.5">
                     <span>Institutional Ecosystems</span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#38bdf8] transition-colors leading-snug">
+                  <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     Data & Digital Governance
                   </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p 
+                    className="text-xs text-slate-300 leading-relaxed text-glow-subtle"
+                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
+                  >
                     Future-ready governance, municipal development (BMDF), sovereign data trust, and regulatory architecture.
                   </p>
                 </div>
@@ -325,7 +328,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                 <div className="pt-2 border-t border-slate-800/60 flex items-center justify-between">
                   <span className="text-[11px] font-semibold text-slate-400 group-hover:text-slate-100 transition-colors flex items-center gap-1">
                     <span>Explore Focus</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-[#38bdf8] group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#ff7e67] group-hover:translate-x-1 transition-transform" />
                   </span>
                   <span className="text-[10px] font-mono text-slate-400">
                     5 Programs
@@ -500,9 +503,10 @@ const FocusAreasSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenCont
       <div id="focus-area" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] text-xs font-bold uppercase tracking-widest">
-            <Layers className="w-3.5 h-3.5" />
-            <span>Core Pillars of Expertise</span>
+          <div>
+            <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+              CORE PILLARS OF EXPERTISE
+            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
             Our Strategic Focus Areas
@@ -690,14 +694,18 @@ const ServicesSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenContac
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] text-xs font-bold uppercase tracking-widest shadow-xs">
-            <Compass className="w-3.5 h-3.5" />
-            <span>Integrated Solutions Matrix</span>
+          <div>
+            <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+              INTEGRATED SOLUTIONS MATRIX
+            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
             Our Services &amp; Advisory Solutions
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
+          <p 
+            className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto text-glow-subtle"
+            style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.35), 0 0 28px rgba(255, 126, 103, 0.18)' }}
+          >
             From rigorous economic feasibility and MERLA design to full-scale survey execution and climate action strategy, we empower public and private institutions.
           </p>
         </div>
@@ -706,24 +714,24 @@ const ServicesSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenContac
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* Left Navigation Buttons */}
-          <div className="lg:col-span-5 space-y-3 sm:space-y-3.5 flex flex-col justify-between h-full">
+          <div className="lg:col-span-5 flex flex-col justify-between gap-2.5 sm:gap-3 h-full">
             {serviceList.map((srv, idx) => {
               const isActive = srv.id === activeServiceId;
               return (
                 <button
                   key={srv.id}
                   onClick={() => setActiveServiceId(srv.id)}
-                  className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all flex items-center justify-between gap-4 group overflow-hidden flex-1 cursor-pointer ${
+                  className={`w-full flex-1 text-left py-3 px-4 sm:py-3.5 sm:px-5 rounded-2xl border transition-all flex items-center justify-between gap-3 group overflow-hidden cursor-pointer ${
                     isActive
                       ? 'bg-[#09131f] border-[#ff7e67] shadow-sm ring-1 ring-[#ff7e67]/30'
                       : 'bg-[#09131f]/75 border-slate-800/80 hover:border-slate-700 hover:bg-[#0c1827]'
                   }`}
                 >
                   <div className="flex-1 min-w-0">
-                    <div className="text-[11px] sm:text-xs uppercase font-mono font-bold text-slate-400 tracking-wider mb-1">
+                    <div className="text-[10px] sm:text-[11px] uppercase font-mono font-bold text-slate-400 tracking-wider mb-0.5">
                       Solution 0{idx + 1} &bull; {srv.shortTag}
                     </div>
-                    <div className={`text-lg sm:text-xl lg:text-2xl font-bold leading-snug transition-colors ${
+                    <div className={`text-base sm:text-lg lg:text-xl font-bold leading-snug transition-colors ${
                       isActive 
                         ? 'text-[#ff7e67]' 
                         : 'text-slate-100 group-hover:text-[#ff7e67]'
@@ -731,7 +739,7 @@ const ServicesSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenContac
                       {srv.title}
                     </div>
                   </div>
-                  <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform ${
+                  <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${
                     isActive 
                       ? 'text-[#ff7e67] translate-x-1' 
                       : 'text-slate-500 group-hover:text-slate-300'
@@ -742,88 +750,72 @@ const ServicesSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenContac
           </div>
 
           {/* Right Selected Service Detail View */}
-          <div className="lg:col-span-7 bg-[#050a12] p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-5 flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-[#050a12] p-5 sm:p-6 rounded-3xl border border-slate-800 shadow-xl flex flex-col justify-between h-full space-y-4">
             
-            {/* Service Cover Photography */}
-            {activeService.imageUrl && (
-              <div className="relative h-40 sm:h-48 rounded-2xl overflow-hidden border border-slate-800/90 shadow-md bg-[#081220] group shrink-0">
-                <img
-                  src={activeService.imageUrl}
-                  alt={activeService.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050a12] via-[#050a12]/20 to-transparent" />
-                
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#ff7e67] bg-[#081220]/95 backdrop-blur-md px-3 py-1 rounded-full border border-[#ff7e67]/30 font-mono">
+            <div className="space-y-4">
+              {/* Service Cover Photography */}
+              {activeService.imageUrl && (
+                <div className="relative h-36 sm:h-44 rounded-2xl overflow-hidden border border-slate-800/90 shadow-md bg-[#081220] group shrink-0">
+                  <img
+                    src={activeService.imageUrl}
+                    alt={activeService.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-85"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050a12] via-[#050a12]/20 to-transparent" />
+                  
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#ff7e67] bg-[#081220]/95 backdrop-blur-md px-3 py-1 rounded-full border border-[#ff7e67]/30 font-mono">
+                      IP3 Methodological Solution
+                    </span>
+                    <span className="text-xs font-semibold text-slate-100 bg-[#081220]/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-800 font-mono">
+                      {activeService.shortTag}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {!activeService.imageUrl && (
+                /* Top Tag Badges fallback */
+                <div className="flex flex-wrap items-center justify-between gap-2.5 pb-2 border-b border-slate-800/80">
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#ff7e67] bg-[#ff7e67]/10 px-3 py-1 rounded-full border border-[#ff7e67]/30 font-mono">
                     IP3 Methodological Solution
                   </span>
-                  <span className="text-xs font-semibold text-slate-100 bg-[#081220]/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-800 font-mono">
+                  <span className="text-xs font-semibold text-slate-300 bg-[#081220] px-3 py-1 rounded-lg border border-slate-800 font-mono">
                     {activeService.shortTag}
                   </span>
                 </div>
+              )}
+
+              {/* Service Title */}
+              <div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-100 leading-tight">
+                  {activeService.title}
+                </h3>
               </div>
-            )}
 
-            {!activeService.imageUrl && (
-              /* Top Tag Badges fallback */
-              <div className="flex flex-wrap items-center justify-between gap-2.5 pb-2 border-b border-slate-800/80">
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#ff7e67] bg-[#ff7e67]/10 px-3 py-1 rounded-full border border-[#ff7e67]/30 font-mono">
-                  IP3 Methodological Solution
-                </span>
-                <span className="text-xs font-semibold text-slate-300 bg-[#081220] px-3 py-1 rounded-lg border border-slate-800 font-mono">
-                  {activeService.shortTag}
-                </span>
-              </div>
-            )}
-
-            {/* Service Title */}
-            <div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-100 leading-tight">
-                {activeService.title}
-              </h3>
-            </div>
-
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-normal">
-              {activeService.description}
-            </p>
-
-            {/* Methodology Architecture */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#081220] border border-slate-800 shadow-xs">
-              <div className="text-xs font-bold text-[#ff7e67] uppercase tracking-wider mb-1.5 flex items-center gap-2 font-mono">
-                <Layers className="w-4 h-4 text-[#ff7e67]" />
-                <span>Analytical &amp; Operational Methodology</span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {activeService.methodology}
+              <p 
+                className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal text-glow-subtle"
+                style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
+              >
+                {activeService.description}
               </p>
             </div>
 
             {/* Key Deliverables Grid */}
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2 font-mono">
-                <FileCheck className="w-4 h-4 text-[#ff7e67]" />
+            <div className="pt-2 border-t border-slate-800/60">
+              <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-2 font-mono">
+                <FileCheck className="w-3.5 h-3.5 text-[#ff7e67]" />
                 <span>Core Tangible Deliverables</span>
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {activeService.deliverables.map((del, i) => (
-                  <div key={i} className="flex items-center gap-2.5 p-3 rounded-xl bg-[#081220] border border-slate-800 text-xs sm:text-sm text-slate-200 shadow-xs">
-                    <CheckCircle2 className="w-4 h-4 text-[#ff7e67] shrink-0" />
-                    <span>{del}</span>
+                  <div key={i} className="flex items-center gap-2 p-2.5 rounded-xl bg-[#081220] border border-slate-800 text-xs text-slate-200 shadow-xs">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff7e67] shrink-0" />
+                    <span className="truncate">{del}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Benchmark Impact Highlight */}
-            <div className="p-4 rounded-2xl bg-[#081220] border border-slate-800">
-              <div className="text-[10px] sm:text-xs uppercase font-bold text-[#ff7e67] mb-1 font-mono tracking-wider">
-                Verified IP3 Project Impact Benchmark
-              </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-300 italic">
-                &ldquo;{activeService.caseStudyHighlight}&rdquo;
-              </p>
             </div>
 
           </div>
@@ -877,14 +869,18 @@ const ProjectsSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] text-xs font-bold uppercase tracking-widest">
-            <BookOpen className="w-3.5 h-3.5" />
-            <span>Proven Action Research Portfolio</span>
+          <div>
+            <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+              PROVEN ACTION RESEARCH PORTFOLIO
+            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
-            Recent Engagements & Impact Projects
+            Recent Engagements &amp; Impact Projects
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+          <p 
+            className="text-sm sm:text-base text-slate-300 leading-relaxed text-glow-subtle"
+            style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.35), 0 0 28px rgba(255, 126, 103, 0.18)' }}
+          >
             Through a diverse portfolio of engagements with global development partners and national ministries, IP3 Experts have built a reputation for meaningful policy outcomes.
           </p>
 
@@ -939,10 +935,13 @@ const ProjectsSection: React.FC = () => {
                   <div className="text-[10px] font-bold uppercase tracking-wider text-[#ff7e67]">
                     {project.categoryLabel}
                   </div>
-                  <h3 className="text-base font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
+                  <h3 className="text-[26px] font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                  <p 
+                    className="text-xs text-slate-300 line-clamp-3 leading-relaxed text-glow-subtle"
+                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.35), 0 0 24px rgba(255, 126, 103, 0.18)' }}
+                  >
                     {project.description}
                   </p>
                 </div>
@@ -1317,6 +1316,9 @@ export const Ip3PolicySection: React.FC<Ip3PolicySectionProps> = ({ onNavigateFo
       <ServicesSection
         onOpenContact={() => setIsContactOpen(true)}
       />
+
+      {/* Translation, Not Theory: Implementation Architecture Framework Suite */}
+      <MethodologyTranslationSection />
 
       {/* Action Research Projects Portfolio */}
       <ProjectsSection />

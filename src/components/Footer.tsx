@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-start gap-3">
-            <div className="p-2.5 rounded-xl bg-[#081220] text-[#2dd4bf] shrink-0 border border-slate-800">
+            <div className="p-2.5 rounded-xl bg-[#081220] text-[#ff7e67] shrink-0 border border-slate-800">
               <Lock className="w-5 h-5" />
             </div>
             <div>

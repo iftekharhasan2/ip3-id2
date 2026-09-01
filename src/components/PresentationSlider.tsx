@@ -156,8 +156,11 @@ export const PresentationSlider: React.FC<PresentationSliderProps> = ({
           {/* Subtitle */}
           {currentSlide.subtitle && (
             <p
-              className="text-sm sm:text-base font-sans font-light text-slate-300 leading-relaxed max-w-lg transition-colors duration-300"
-              style={{ color: activeSubtitleColor }}
+              className="text-sm sm:text-base font-sans font-light text-slate-300 leading-relaxed max-w-lg transition-colors duration-300 text-glow-subtle"
+              style={{ 
+                color: activeSubtitleColor,
+                textShadow: '0 0 16px rgba(255, 126, 103, 0.45), 0 0 30px rgba(255, 126, 103, 0.22)' 
+              }}
             >
               {currentSlide.subtitle}
             </p>

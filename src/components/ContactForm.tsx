@@ -188,42 +188,44 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSwitchToConsultation
             </div>
           )}
 
-          {/* Row 1: Organisation & Type of organisation */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
-                ORGANISATION <span className="text-[#ff7e67]">*</span>
-              </label>
-              <input
-                type="text"
-                name="organisation"
-                value={formData.organisation}
-                onChange={handleChange}
-                placeholder="Ministry / Enterprise / Agency"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all placeholder:text-slate-600"
-                required
-              />
-            </div>
+          {/* Row 1: Organisation & Type of organisation (for collaboration & consultation) */}
+          {inquiryType !== 'enquiry' && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                  ORGANISATION <span className="text-[#ff7e67]">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="organisation"
+                  value={formData.organisation}
+                  onChange={handleChange}
+                  placeholder="Ministry / Enterprise / Agency"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all placeholder:text-slate-600"
+                  required
+                />
+              </div>
 
-            <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
-                ORGANISATION TYPE <span className="text-[#ff7e67]">*</span>
-              </label>
-              <select
-                name="orgType"
-                value={formData.orgType}
-                onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all cursor-pointer"
-              >
-                <option value="Government / ministry" className="bg-[#081220] text-slate-100">Government / ministry</option>
-                <option value="Multilateral / Development Bank" className="bg-[#081220] text-slate-100">Multilateral / Development Bank</option>
-                <option value="Private Sector / Corporate" className="bg-[#081220] text-slate-100">Private Sector / Corporate</option>
-                <option value="Academic / Think Tank" className="bg-[#081220] text-slate-100">Academic / Think Tank</option>
-                <option value="NGO / Civil Society" className="bg-[#081220] text-slate-100">NGO / Civil Society</option>
-                <option value="Other" className="bg-[#081220] text-slate-100">Other</option>
-              </select>
+              <div>
+                <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                  ORGANISATION TYPE <span className="text-[#ff7e67]">*</span>
+                </label>
+                <select
+                  name="orgType"
+                  value={formData.orgType}
+                  onChange={handleChange}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all cursor-pointer"
+                >
+                  <option value="Government / ministry" className="bg-[#081220] text-slate-100">Government / ministry</option>
+                  <option value="Multilateral / Development Bank" className="bg-[#081220] text-slate-100">Multilateral / Development Bank</option>
+                  <option value="Private Sector / Corporate" className="bg-[#081220] text-slate-100">Private Sector / Corporate</option>
+                  <option value="Academic / Think Tank" className="bg-[#081220] text-slate-100">Academic / Think Tank</option>
+                  <option value="NGO / Civil Society" className="bg-[#081220] text-slate-100">NGO / Civil Society</option>
+                  <option value="Other" className="bg-[#081220] text-slate-100">Other</option>
+                </select>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Row 2: Your name & Email address */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -258,61 +260,67 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSwitchToConsultation
             </div>
           </div>
 
-          {/* Row 3: Focus area */}
-          <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
-              FOCUS AREA <span className="text-[#ff7e67]">*</span>
-            </label>
-            <select
-              name="focusArea"
-              value={formData.focusArea}
-              onChange={handleChange}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all cursor-pointer"
-              required
-            >
-              <option value="" className="bg-[#081220] text-slate-400">Select the closest domain</option>
-              <option value="Climate & Green Transition" className="bg-[#081220] text-slate-100">Climate & Green Transition</option>
-              <option value="Education & Human Capital" className="bg-[#081220] text-slate-100">Education & Human Capital</option>
-              <option value="Institutional Governance & Reform" className="bg-[#081220] text-slate-100">Institutional Governance & Reform</option>
-              <option value="MERLA Frameworks" className="bg-[#081220] text-slate-100">MERLA Frameworks</option>
-              <option value="Macro & Sector Policy Advisory" className="bg-[#081220] text-slate-100">Macro & Sector Policy Advisory</option>
-              <option value="General Strategic Advisory" className="bg-[#081220] text-slate-100">General Strategic Advisory</option>
-            </select>
-          </div>
+          {/* Row 3: Focus area (for collaboration & consultation) */}
+          {inquiryType !== 'enquiry' && (
+            <div>
+              <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                FOCUS AREA <span className="text-[#ff7e67]">*</span>
+              </label>
+              <select
+                name="focusArea"
+                value={formData.focusArea}
+                onChange={handleChange}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all cursor-pointer"
+                required
+              >
+                <option value="" className="bg-[#081220] text-slate-400">Select the closest domain</option>
+                <option value="Climate & Green Transition" className="bg-[#081220] text-slate-100">Climate & Green Transition</option>
+                <option value="Education & Human Capital" className="bg-[#081220] text-slate-100">Education & Human Capital</option>
+                <option value="Institutional Governance & Reform" className="bg-[#081220] text-slate-100">Institutional Governance & Reform</option>
+                <option value="MERLA Frameworks" className="bg-[#081220] text-slate-100">MERLA Frameworks</option>
+                <option value="Macro & Sector Policy Advisory" className="bg-[#081220] text-slate-100">Macro & Sector Policy Advisory</option>
+                <option value="General Strategic Advisory" className="bg-[#081220] text-slate-100">General Strategic Advisory</option>
+              </select>
+            </div>
+          )}
 
-          {/* Row 4: Outline */}
+          {/* Row 4: Outline / Message */}
           <div>
             <label className="block text-xs font-medium text-slate-300 mb-0.5 font-mono">
-              PROJECT OUTLINE & TARGET IMPACT <span className="text-[#ff7e67]">*</span>
+              {inquiryType === 'enquiry' ? 'YOUR MESSAGE / QUESTION' : 'PROJECT OUTLINE & TARGET IMPACT'} <span className="text-[#ff7e67]">*</span>
             </label>
             <div className="text-[11px] text-slate-400 mb-1.5">
-              What is the core institutional challenge, affected population, and intended outcome?
+              {inquiryType === 'enquiry'
+                ? 'Describe your question, inquiry, or topic of interest...'
+                : 'What is the core institutional challenge, affected population, and intended outcome?'}
             </div>
             <textarea
               name="outline"
               rows={4}
               value={formData.outline}
               onChange={handleChange}
-              placeholder="Detail your initiative requirements and scope..."
+              placeholder={inquiryType === 'enquiry' ? 'Type your message or question here...' : 'Detail your initiative requirements and scope...'}
               className="w-full p-3.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all placeholder:text-slate-600 resize-none"
               required
             ></textarea>
           </div>
 
-          {/* Row 5: Indicative timeline */}
-          <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
-              INDICATIVE TIMELINE <span className="text-slate-500 font-normal">(optional)</span>
-            </label>
-            <input
-              type="text"
-              name="timeline"
-              value={formData.timeline}
-              onChange={handleChange}
-              placeholder="e.g. 6-month deployment from Q2"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all placeholder:text-slate-600"
-            />
-          </div>
+          {/* Row 5: Indicative timeline (for collaboration & consultation) */}
+          {inquiryType !== 'enquiry' && (
+            <div>
+              <label className="block text-xs font-medium text-slate-300 mb-1.5 font-mono">
+                INDICATIVE TIMELINE <span className="text-slate-500 font-normal">(optional)</span>
+              </label>
+              <input
+                type="text"
+                name="timeline"
+                value={formData.timeline}
+                onChange={handleChange}
+                placeholder="e.g. 6-month deployment from Q2"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#081220] border border-slate-700/80 text-slate-100 text-sm focus:outline-hidden focus:ring-2 focus:ring-[#ff7e67]/30 focus:border-[#ff7e67] transition-all placeholder:text-slate-600"
+              />
+            </div>
+          )}
 
           {/* Checkbox */}
           <div className="pt-2">

@@ -198,11 +198,12 @@ export const ExecutiveCard: React.FC<ExecutiveCardProps> = ({
               {/* RIGHT COLUMN: Executive Narrative, Bio & Track Record */}
               <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
                 <div>
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-bold tracking-wide uppercase bg-[#ff7e67]/10 text-[#ff7e67] border border-[#ff7e67]/30 mb-2 font-mono">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      Executive Leadership Profile
-                    </span>
+                  <div className="mb-4 space-y-1.5">
+                    <div>
+                      <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+                        EXECUTIVE LEADERSHIP PROFILE
+                      </span>
+                    </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-slate-100 font-serif">
                       Mohammad Syful Hoque
                     </h2>

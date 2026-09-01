@@ -40,7 +40,10 @@ export const PolicyShowcaseSection: React.FC = () => {
             className="lg:col-span-7 flex flex-col max-w-2xl"
           >
             {/* Eyebrow */}
-            <span className="text-sm sm:text-base font-normal text-slate-400 mb-2 sm:mb-3 tracking-normal">
+            <span 
+              className="text-sm sm:text-base font-normal text-slate-300 mb-2 sm:mb-3 tracking-normal text-glow-subtle"
+              style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.45), 0 0 24px rgba(255, 126, 103, 0.22)' }}
+            >
               An Institution for
             </span>
 
@@ -52,7 +55,10 @@ export const PolicyShowcaseSection: React.FC = () => {
             </h2>
 
             {/* Description Paragraph */}
-            <p className="text-slate-400 text-sm sm:text-[15px] lg:text-base leading-[1.68] font-normal text-left max-w-xl text-pretty">
+            <p 
+              className="text-slate-300 text-sm sm:text-[15px] lg:text-base leading-[1.68] font-normal text-left max-w-xl text-pretty text-glow-subtle"
+              style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.38), 0 0 28px rgba(255, 126, 103, 0.18)' }}
+            >
               We deliver expert consultancy in Economic and Environmental Policy, Government Services, and Education, advancing innovation through sound research, creative data models, and tailored digital strategies. Our multidisciplinary services cover the full lifecycle of public policy, program delivery, and organizational design—from strategic planning and implementation to evaluation—ensuring sustainable and impactful results.
             </p>
           </motion.div>
@@ -68,7 +74,7 @@ export const PolicyShowcaseSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Tilted White Smartphone Mockup */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-start order-2 lg:order-1">
+          <div className="hidden lg:flex lg:col-span-5 justify-center lg:justify-start order-2 lg:order-1">
             <PhoneMockup />
           </div>
 
@@ -81,7 +87,10 @@ export const PolicyShowcaseSection: React.FC = () => {
             className="lg:col-span-7 flex flex-col max-w-2xl order-1 lg:order-2"
           >
             {/* Eyebrow */}
-            <span className="text-sm sm:text-base font-normal text-slate-400 mb-3 tracking-normal">
+            <span 
+              className="text-sm sm:text-base font-normal text-slate-300 mb-3 tracking-normal text-glow-subtle"
+              style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.45), 0 0 24px rgba(255, 126, 103, 0.22)' }}
+            >
               IP3 Consulting
             </span>
 
@@ -95,7 +104,10 @@ export const PolicyShowcaseSection: React.FC = () => {
             </div>
 
             {/* Description Paragraph */}
-            <p className="text-slate-400 text-sm sm:text-[15px] lg:text-base leading-[1.68] font-normal text-left max-w-xl text-pretty">
+            <p 
+              className="text-slate-300 text-sm sm:text-[15px] lg:text-base leading-[1.68] font-normal text-left max-w-xl text-pretty text-glow-subtle"
+              style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.38), 0 0 28px rgba(255, 126, 103, 0.18)' }}
+            >
               Bringing together experts from a range of disciplines who understand the intricate balance between prosperity and the planet. Our multi-sectoral expertise empowers governments, development agencies, philanthropies, the private sector, and local communities to co-create actionable policies and investable programs that center human well-being and planetary health. We help our partners reimagine economic policy as a tool for sustainable development, social justice, and ecological regeneration.
             </p>
           </motion.div>

@@ -11,9 +11,11 @@ export const TrustMatrixMarquee: React.FC = () => {
     <div className="relative w-full overflow-hidden bg-[var(--bg)] py-12 select-none border-t border-b border-[var(--border)] transition-colors duration-250 font-sans">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto px-4 mb-8 space-y-2">
-        <p className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#ff7e67] bg-[#ff7e67]/10 px-3 py-1 rounded-full border border-[#ff7e67]/30 inline-block">
-          {trustMatrix.sectionBadge || "Strategic Partners & Client Ecosystem"}
-        </p>
+        <div>
+          <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+            {trustMatrix.sectionBadge || "STRATEGIC PARTNERS & CLIENT ECOSYSTEM"}
+          </span>
+        </div>
         <h3 className="text-xl sm:text-2xl font-extrabold text-slate-100 tracking-tight">
           {trustMatrix.sectionTitle || "Clients & Strategic Development Partners Who Trust Us"}
         </h3>

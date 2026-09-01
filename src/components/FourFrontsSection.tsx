@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Copy, Check } from 'lucide-react';
 import { ParallaxCardsSection } from './ParallaxCardsSection';
 import { useCMS } from '../context/CMSContext';
 
@@ -25,7 +24,6 @@ export const FourFrontsSection: React.FC = () => {
   ];
 
   const [activeTabIdx, setActiveTabIdx] = useState<number>(0);
-  const [copied, setCopied] = useState<boolean>(false);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const safeIdx = activeTabIdx < fronts.length ? activeTabIdx : 0;
   const activeFront = fronts[safeIdx] || fronts[0];
@@ -39,14 +37,6 @@ export const FourFrontsSection: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [isPaused, fronts.length]);
-
-  const handleCopyDetails = () => {
-    if (!activeFront) return;
-    const textToCopy = `[OPERATIONAL ENGINE FRONT DETAILS]\nTitle: ${activeFront.title}\nFocus Vector: ${activeFront.focusVector}\nDescription: ${activeFront.desc}\nDeliverable Spec: ${activeFront.deliverable}`;
-    navigator.clipboard.writeText(textToCopy);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section id="about" className="relative bg-[#050a12] text-slate-100 py-8 md:py-12 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
@@ -62,11 +52,10 @@ export const FourFrontsSection: React.FC = () => {
 
           {/* Top Full-Width Section: Strategic Insights & Philosophical Narrative */}
           <div className="w-full space-y-5 relative z-10">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] text-xs font-mono font-bold tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#ff7e67] animate-pulse" />
-                <span>Strategic Insights & Institutional Thesis</span>
-              </div>
+            <div>
+              <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
+                STRATEGIC INSIGHTS &amp; INSTITUTIONAL THESIS
+              </span>
             </div>
 
             {/* Display Headline across full width */}
@@ -76,13 +65,19 @@ export const FourFrontsSection: React.FC = () => {
 
             {/* Quote Block */}
             <div className="border-l-2 border-[#ff7e67] pl-4 py-2 bg-[#ff7e67]/5 rounded-r-2xl max-w-4xl">
-              <p className="text-sm sm:text-base md:text-lg text-slate-100 font-medium leading-relaxed italic">
+              <p 
+                className="text-sm sm:text-base md:text-lg text-slate-100 font-medium leading-relaxed italic text-glow-subtle"
+                style={{ textShadow: '0 0 16px rgba(255, 126, 103, 0.45), 0 0 32px rgba(255, 126, 103, 0.22)' }}
+              >
                 "{research.quote}"
               </p>
             </div>
 
             {/* Body Text */}
-            <p className="text-xs sm:text-sm md:text-base text-slate-400 font-normal leading-relaxed max-w-4xl">
+            <p 
+              className="text-xs sm:text-sm md:text-base text-slate-300 font-normal leading-relaxed max-w-4xl text-glow-subtle"
+              style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.35), 0 0 28px rgba(255, 126, 103, 0.18)' }}
+            >
               {research.bodyText}
             </p>
           </div>
@@ -114,13 +109,13 @@ export const FourFrontsSection: React.FC = () => {
                         onClick={() => {
                           setActiveTabIdx(idx);
                         }}
-                        className={`relative py-2 px-2.5 rounded-xl font-mono text-[11px] tracking-wider transition-all duration-300 text-center cursor-pointer overflow-hidden ${
+                        className={`relative py-2.5 px-3 rounded-xl font-mono text-[18px] tracking-wider transition-all duration-300 text-center cursor-pointer overflow-hidden ${
                           isActive
                             ? 'bg-[#ff7e67] text-[#070d18] font-bold shadow-md shadow-[#ff7e67]/30'
                             : 'text-slate-400 hover:text-white hover:bg-slate-800/50 border border-transparent'
                         }`}
                       >
-                        <span className="relative z-10 truncate block">{front.tabLabel}</span>
+                        <span className="relative z-10 truncate block text-[18px]">{front.tabLabel}</span>
                         {/* Auto-rotation active progress line */}
                         {isActive && !isPaused && (
                           <span 
@@ -146,28 +141,6 @@ export const FourFrontsSection: React.FC = () => {
                         <h3 className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-slate-100 leading-tight">
                           {activeFront.title}
                         </h3>
-
-                        <button
-                          onClick={handleCopyDetails}
-                          className={`px-3 py-1.5 rounded-lg border text-xs font-mono font-bold flex items-center gap-1.5 transition-all shrink-0 cursor-pointer ${
-                            copied
-                              ? 'bg-[#ff7e67]/20 border-[#ff7e67] text-[#ff7e67] shadow-xs'
-                              : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200'
-                          }`}
-                          title="Copy operational front details to clipboard"
-                        >
-                          {copied ? (
-                            <>
-                              <Check className="w-3.5 h-3.5 text-[#ff7e67]" />
-                              <span>Copied!</span>
-                            </>
-                          ) : (
-                            <>
-                              <Copy className="w-3.5 h-3.5 text-slate-400" />
-                              <span>Copy Details</span>
-                            </>
-                          )}
-                        </button>
                       </div>
 
                       <div className="flex items-center gap-2 text-xs font-mono text-slate-400">
@@ -178,13 +151,6 @@ export const FourFrontsSection: React.FC = () => {
                       <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
                         {activeFront.desc}
                       </p>
-
-                      <div className="pt-1 flex flex-wrap items-center gap-2">
-                        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] text-xs font-mono font-bold">
-                          <span className="uppercase text-[10px] text-slate-400">Deliverable:</span>
-                          <span>{activeFront.deliverable}</span>
-                        </span>
-                      </div>
                     </div>
 
                     {/* Right Image Banner */}

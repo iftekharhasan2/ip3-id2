@@ -66,7 +66,8 @@ export const SystemsArchitectureSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl pt-1 font-light"
+              className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-xl pt-1 font-light text-glow-subtle"
+              style={{ textShadow: '0 0 16px rgba(255, 126, 103, 0.45), 0 0 32px rgba(255, 126, 103, 0.22)' }}
             >
               IP3 Consulting Limited translates policy intelligence, data, and digital
               transformation into implementation architecture for resilient institutions,

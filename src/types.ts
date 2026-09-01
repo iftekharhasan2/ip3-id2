@@ -367,3 +367,17 @@ export interface ProjectItemData {
   featured?: boolean;
 }
 
+export interface MethodologyStep {
+  id: string;
+  code: string;
+  name: string;
+  subtitle: string;
+  tagline: string;
+  description: string;
+  phaseGroup: 'discovery' | 'architecture' | 'execution';
+  colorTheme: 'cyan' | 'amber' | 'emerald';
+  keyActivities: string[];
+  deliverables: string[];
+  metrics: string[];
+}
+

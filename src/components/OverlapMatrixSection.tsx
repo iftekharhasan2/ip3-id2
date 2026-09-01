@@ -21,13 +21,13 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
       <div className="space-y-4 max-w-3xl">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#ff7e67]" />
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ffa190] font-semibold">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-semibold">
             THE IP3 INTEGRATION ENGINE
           </span>
         </div>
         <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight">
           System Overlaps &{' '}
-          <span className="italic font-normal bg-clip-text text-transparent bg-gradient-to-r from-[#2dd4bf] to-[#38bdf8]">
+          <span className="italic font-normal bg-clip-text text-transparent bg-gradient-to-r from-[#ff7e67] to-[#ffa190]">
             Cross-Domain Convergence.
           </span>
         </h2>
@@ -51,13 +51,13 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
                 onClick={() => setSelectedIntersectionId(item.id)}
                 className={`w-full text-left p-4 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-between ${
                   isSelected
-                    ? 'bg-[#0f2138] border-teal-400/80 shadow-[0_0_20px_rgba(45,212,191,0.2)] ring-1 ring-teal-400'
+                    ? 'bg-[#1a0f0d] border-[#ff7e67]/80 shadow-[0_0_20px_rgba(255,126,103,0.2)] ring-1 ring-[#ff7e67]'
                     : 'bg-[#07111e]/70 border-slate-800 hover:bg-[#0b1b2f] text-slate-400'
                 }`}
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[11px] uppercase tracking-wider font-bold text-teal-300">
+                    <span className="font-mono text-[11px] uppercase tracking-wider font-bold text-[#ff7e67]">
                       {item.title.split('(')[1]?.replace(')', '') || item.title}
                     </span>
                   </div>
@@ -71,7 +71,7 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
                 </div>
                 <Zap
                   className={`w-4 h-4 shrink-0 transition-colors ${
-                    isSelected ? 'text-teal-400' : 'text-slate-600'
+                    isSelected ? 'text-[#ff7e67]' : 'text-slate-600'
                   }`}
                 />
               </button>
@@ -83,12 +83,12 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
         <div className="lg:col-span-7 bg-gradient-to-b from-[#0a1728] to-[#040912] border border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative">
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-teal-400" />
-              <span className="font-mono text-xs text-teal-300 font-bold uppercase tracking-widest">
+              <Sparkles className="w-4 h-4 text-[#ff7e67]" />
+              <span className="font-mono text-xs text-[#ff7e67] font-bold uppercase tracking-widest">
                 CONVERGENCE BLUEPRINT
               </span>
             </div>
-            <span className="font-mono text-[11px] text-slate-400 bg-teal-500/10 border border-teal-500/20 px-2.5 py-1 rounded-full">
+            <span className="font-mono text-[11px] text-slate-400 bg-[#ff7e67]/10 border border-[#ff7e67]/20 px-2.5 py-1 rounded-full">
               {activeIntersection.architectureFocus}
             </span>
           </div>
@@ -110,7 +110,7 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
             >
               <span>{activeIntersection.source.toUpperCase()}</span>
             </button>
-            <span className="text-teal-400 font-mono text-xs font-bold">✕</span>
+            <span className="text-[#ff7e67] font-mono text-xs font-bold">✕</span>
             <button
               onClick={() => onSelectNode(activeIntersection.target)}
               className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0a1626] border border-slate-700 text-xs font-mono text-slate-200 hover:text-white hover:border-slate-500 transition-colors cursor-pointer"
@@ -118,7 +118,7 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
               <span>{activeIntersection.target.toUpperCase()}</span>
             </button>
             <span className="text-slate-500 font-mono text-xs">=</span>
-            <span className="text-teal-300 text-xs font-mono font-semibold">
+            <span className="text-[#ff7e67] text-xs font-mono font-semibold">
               IP3 System Overlap Solution
             </span>
           </div>
@@ -134,7 +134,7 @@ export const OverlapMatrixSection: React.FC<OverlapMatrixProps> = ({ onSelectNod
                   key={idx}
                   className="flex items-center gap-2.5 p-3 rounded-lg bg-[#071322] border border-slate-800/80 text-xs sm:text-sm text-slate-200"
                 >
-                  <Check className="w-4 h-4 text-teal-400 shrink-0" />
+                  <Check className="w-4 h-4 text-[#ff7e67] shrink-0" />
                   <span>{deliv}</span>
                 </div>
               ))}

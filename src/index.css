@@ -2,14 +2,21 @@
 
 :root {
   --bg: #050a12;
+  --bg-canvas: #050a12;
   --surface: #081220;
   --bg-surface: #081220;
+  --bg-surface-card: #09131f;
+  --bg-surface-active: #0c1c2e;
   --bg-card: #0a182b;
   --coral: #ff7e67;
+  --color-accent-primary: #ff7e67;
   --white: #f8fafc;
+  --text-primary: #f8fafc;
   --muted: #94a3b8;
   --text-muted: #94a3b8;
+  --text-secondary: #94a3b8;
   --border: #1e293b;
+  --border-default: #1e293b;
   --slate: #334155;
 
   /* IP3 Design System Variables */
@@ -235,7 +242,7 @@
 }
 .glass-panel-interactive:hover {
   background: rgba(10, 24, 43, 0.9);
-  border-color: rgba(45, 212, 191, 0.4);
+  border-color: rgba(255, 126, 103, 0.4);
 }
 
 .glass-shine {
@@ -257,18 +264,30 @@
   background: rgba(15, 33, 56, 0.95);
 }
 
+.text-glow {
+  text-shadow: 0 0 16px rgba(255, 126, 103, 0.55), 0 0 32px rgba(255, 126, 103, 0.3);
+}
+
+.text-glow-subtle {
+  text-shadow: 0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2);
+}
+
+.text-glow-bright {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 126, 103, 0.6), 0 0 35px rgba(255, 126, 103, 0.3);
+}
+
 .neu-glow-sky {
-  box-shadow: 0 0 24px -4px rgba(45, 212, 191, 0.3);
+  box-shadow: 0 0 24px -4px rgba(255, 126, 103, 0.3);
 }
 
 .gradient-text-teal {
-  background: linear-gradient(135deg, #2dd4bf 0%, #34d399 100%);
+  background: linear-gradient(135deg, #ff7e67 0%, #ffa190 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-blue {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #ff7e67 0%, #ffa190 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

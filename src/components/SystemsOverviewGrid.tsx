@@ -12,18 +12,18 @@ export const SystemsOverviewGrid: React.FC<SystemsOverviewGridProps> = ({ onSele
   const getIcon = (id: SystemNodeId) => {
     switch (id) {
       case 'institutions':
-        return <Landmark className="w-5 h-5 text-cyan-400" />;
+        return <Landmark className="w-5 h-5 text-[#ff7e67]" />;
       case 'policy':
         return <Scale className="w-5 h-5 text-[#ff7e67]" />;
       case 'evidence':
-        return <BarChart3 className="w-5 h-5 text-emerald-400" />;
+        return <BarChart3 className="w-5 h-5 text-[#ff7e67]" />;
       case 'technology':
-        return <Binary className="w-5 h-5 text-indigo-400" />;
+        return <Binary className="w-5 h-5 text-[#ff7e67]" />;
       case 'finance':
-        return <Coins className="w-5 h-5 text-amber-400" />;
+        return <Coins className="w-5 h-5 text-[#ff7e67]" />;
       case 'core':
       default:
-        return <Layers className="w-5 h-5 text-teal-400" />;
+        return <Layers className="w-5 h-5 text-[#ff7e67]" />;
     }
   };
 
@@ -36,8 +36,8 @@ export const SystemsOverviewGrid: React.FC<SystemsOverviewGridProps> = ({ onSele
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-3 max-w-2xl">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-teal-400" />
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-teal-300 font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#ff7e67]" />
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-semibold">
               COMPLETE SYSTEM SPECTRUM
             </span>
           </div>
@@ -59,11 +59,11 @@ export const SystemsOverviewGrid: React.FC<SystemsOverviewGridProps> = ({ onSele
           <div
             key={node.id}
             onClick={() => onSelectNode(node.id)}
-            className="group bg-gradient-to-b from-[#091524] to-[#050b14] border border-slate-800 hover:border-teal-500/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(20,184,166,0.12)] cursor-pointer flex flex-col justify-between space-y-6"
+            className="group bg-gradient-to-b from-[#091524] to-[#050b14] border border-slate-800 hover:border-[#ff7e67]/50 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,126,103,0.12)] cursor-pointer flex flex-col justify-between space-y-6"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-[#0d1e33] border border-slate-700/80 flex items-center justify-center group-hover:border-teal-400/60 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#0d1e33] border border-slate-700/80 flex items-center justify-center group-hover:border-[#ff7e67]/60 transition-colors">
                   {getIcon(node.id)}
                 </div>
                 <span className="font-mono text-[11px] uppercase tracking-widest text-slate-400">
@@ -72,10 +72,10 @@ export const SystemsOverviewGrid: React.FC<SystemsOverviewGridProps> = ({ onSele
               </div>
 
               <div className="space-y-1">
-                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-teal-200 transition-colors">
+                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-[#ff7e67] transition-colors">
                   {node.label}
                 </h3>
-                <p className="text-xs font-mono text-teal-300 font-medium line-clamp-1">
+                <p className="text-xs font-mono text-[#ff7e67] font-medium line-clamp-1">
                   {node.tagline}
                 </p>
               </div>
@@ -90,7 +90,7 @@ export const SystemsOverviewGrid: React.FC<SystemsOverviewGridProps> = ({ onSele
               <span className="text-slate-400 group-hover:text-slate-200">
                 {node.keyCapabilities.length} Core Capabilities
               </span>
-              <span className="flex items-center gap-1 text-teal-400 group-hover:translate-x-1 transition-transform">
+              <span className="flex items-center gap-1 text-[#ff7e67] group-hover:translate-x-1 transition-transform">
                 <span>Inspect Specs</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </span>

@@ -49,7 +49,7 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
     tagline: 'The Convergence of Policy, Evidence, Tech, Finance & Institutions',
     description: 'The core integrative engine where policy intelligence meets technical implementation. IP3 bridges systemic silos to convert high-level mandates into operational, resilient public and private infrastructures.',
     extendedOverview: 'Traditional consulting stops at policy recommendations or technical specifications. IP3 operates as a unified systems integrator, translating abstract legislation and economic goals into production-grade governance architectures, data pipelines, and funding mechanisms.',
-    color: '#2dd4bf',
+    color: '#ff7e67',
     connections: ['institutions', 'policy', 'evidence', 'technology', 'finance'],
     keyCapabilities: [
       'Cross-Domain Systems Integration',
@@ -76,7 +76,7 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
     tagline: 'Public Sector Capacity & Organizational Architecture',
     description: 'Transforming institutional capacity, organizational structures, and regulatory mandates to execute modern complex public missions.',
     extendedOverview: 'We architect institutional operating models that eliminate bureaucratic gridlock. Through restructuring workflows, establishing change coalitions, and building sovereign digital capabilities, we prepare ministries, regulators, and civic bodies for continuous systemic adaptation.',
-    color: '#38bdf8',
+    color: '#ff7e67',
     connections: ['policy', 'evidence', 'core'],
     keyCapabilities: [
       'Public Sector Organizational Redesign',
@@ -130,7 +130,7 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
     tagline: 'Econometric Modeling, Data Telemetry & Spatial Intelligence',
     description: 'Anchoring decision-making in rigorous quantitative research, systemic causal models, and longitudinal empirical feedback.',
     extendedOverview: 'We dismantle anecdotal governance through predictive analytics, econometric benchmarking, and continuous sensor/field data. Our models highlight latent risks and uncover high-multiplier investment interventions.',
-    color: '#34d399',
+    color: '#ff7e67',
     connections: ['institutions', 'finance', 'core'],
     keyCapabilities: [
       'Econometric & Causal Impact Evaluation',
@@ -157,7 +157,7 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
     tagline: 'Open Protocols, Digital Identity & Sovereign Cloud Systems',
     description: 'Engineering the digital backbone for modern state capacity, interoperable public data rails, and citizen-centric services.',
     extendedOverview: 'We design and deploy open, vendor-neutral digital public infrastructure (DPI). By leveraging modular open-source protocols, secure APIs, and sovereign cloud architectures, we prevent vendor lock-in and democratize digital access.',
-    color: '#818cf8',
+    color: '#ff7e67',
     connections: ['policy', 'finance', 'core'],
     keyCapabilities: [
       'Digital Public Infrastructure (DPI) Blueprinting',
@@ -184,7 +184,7 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
     tagline: 'Blended Finance, Green Transition & Public Investment Strategy',
     description: 'Structuring innovative financing vehicles, catalytic public-private partnerships, and ESG-aligned capital pipelines.',
     extendedOverview: 'Capital allocation must match long-term systemic impact. We structure blended finance facilities, green transition bonds, and performance-based procurement models that derisk private institutional capital for public good.',
-    color: '#fbbf24',
+    color: '#ff7e67',
     connections: ['evidence', 'technology', 'core'],
     keyCapabilities: [
       'Blended Finance & Risk-Mitigation Facilities',
