@@ -31,6 +31,7 @@ import {
 import { TeamSection } from './TeamSection';
 import { ExecutiveCard } from './ExecutiveCard';
 import { TestimonialCard } from './TestimonialCard';
+import { AboutOverviewView } from './about-overview/AboutOverviewView';
 
 export const PRINCIPLES = [
   {
@@ -210,8 +211,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigateContact = () => {},
   onNavigateApproach = () => {},
 }) => {
-  // Available 4 core sub-pages within About Us: overview, people, approach, principles
-  const [activeTab, setActiveTab] = useState<'overview' | 'people' | 'approach' | 'principles'>('overview');
+  // Available 3 core sub-pages within About Us: overview, people, approach
+  const [activeTab, setActiveTab] = useState<'overview' | 'people' | 'approach'>('overview');
   const [activeApproachStage, setActiveApproachStage] = useState<number>(0);
 
   useEffect(() => {
@@ -220,8 +221,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         setActiveTab('people');
       } else if (initialSection.includes('approach') || initialSection.includes('methodology') || initialSection.includes('lifecycle')) {
         setActiveTab('approach');
-      } else if (initialSection.includes('principles') || initialSection.includes('governance') || initialSection.includes('ethics')) {
-        setActiveTab('principles');
       } else {
         setActiveTab('overview');
       }
@@ -261,7 +260,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <span className="text-slate-400">About Us</span>
             <ChevronRight className="w-3.5 h-3.5 opacity-60" />
             <span className="text-[#ff7e67] font-semibold capitalize">
-              {activeTab === 'overview' ? '01. Institutional Overview' : activeTab === 'people' ? '02. IP3 People & Faculty' : activeTab === 'approach' ? '03. Methodological Approach' : '04. Operating Principles'}
+              {activeTab === 'overview' ? '01. Institutional Overview' : activeTab === 'people' ? '02. IP3 People & Faculty' : '03. Methodological Approach'}
             </span>
           </nav>
 
@@ -278,17 +277,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 {activeTab === 'overview' && 'An Advisory Firm Built for Institutional Longevity'}
                 {activeTab === 'people' && 'IP3 People, Faculty & Leadership'}
                 {activeTab === 'approach' && 'Empirical Research, Policy Design & Delivery'}
-                {activeTab === 'principles' && 'Standards of Evidence & Operating Principles'}
               </h1>
             </div>
 
-            {/* Sub-Page Navigation Tabs (Overview, IP3 People, Approach, Principles) */}
+            {/* Sub-Page Navigation Tabs (Overview, IP3 People, Approach) */}
             <div className="flex items-center flex-wrap p-1.5 rounded-full bg-[#081220] border border-slate-800 shadow-inner shrink-0 gap-1">
               {[
                 { id: 'overview', label: 'Overview', icon: Landmark, number: '01' },
                 { id: 'people', label: 'IP3 People', icon: Users, number: '02' },
                 { id: 'approach', label: 'Approach', icon: Compass, number: '03' },
-                { id: 'principles', label: 'Principles', icon: FileCheck, number: '04' },
               ].map((tab) => {
                 const TabIcon = tab.icon;
                 const isActive = activeTab === tab.id;
@@ -329,7 +326,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             {activeTab === 'overview' && 'IP3 Consulting Limited works with sovereign governments, multilateral development institutions, and enterprise leaders to transform systemic risk into durable institutional capacity through empirical research, policy design, financing structures, and public delivery.'}
             {activeTab === 'people' && 'Meet the economists, public policy researchers, data architects, and executive advisors driving systemic reform and empirical policy analysis across global jurisdictions.'}
             {activeTab === 'approach' && 'Our 6-stage delivery lifecycle bridges the gap between high-level analytical modeling and operational civil service implementation, ensuring long-term sovereign autonomy.'}
-            {activeTab === 'principles' && 'Our work is governed by strict evidence standards, operational realism, and non-disclosure protocols. We publish only what we can verify and stay past the recommendation.'}
           </p>
 
           {/* Quick Metrics Strip */}
@@ -368,225 +364,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             transition={{ duration: 0.2 }}
             id="overview"
           >
-            {/* Main Position & Thesis Section */}
-            <section className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16 border-b border-slate-800 bg-[#050a12]">
-              <div className="max-w-7xl mx-auto">
-                <div className="grid gap-12 lg:grid-cols-[1.18fr_1fr] lg:gap-16 items-start">
-                  {/* Left Narrative Column */}
-                  <div className="space-y-8">
-                    <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="h-[2px] w-6 bg-[#ff7e67]" />
-                        <span className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#ff7e67]">
-                          Position & Thesis
-                        </span>
-                      </div>
-                      <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight mb-4">
-                        At the intersection of research, policy, finance and delivery
-                      </h2>
-                      <p className="text-sm sm:text-base text-slate-400 font-normal leading-relaxed">
-                        IP3 Consulting Limited works with governments and ministries, development partners, financial institutions, and research entities. The common thread is institutional: our clients are trying to change how a system behaves, not simply to buy an opinion about it.
-                      </p>
-                    </div>
-
-                    {/* The 4 Joins Architecture Banner */}
-                    <div className="p-6 rounded-3xl bg-[#081220] border border-slate-800 shadow-xl">
-                      <div className="flex items-center justify-between gap-2 mb-4">
-                        <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff7e67] flex items-center gap-2">
-                          <Target className="w-4 h-4" />
-                          <span>Operating Across The Joins</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-slate-400 bg-[#050a12] px-2.5 py-0.5 rounded-full border border-slate-800">
-                          Integrated Delivery Architecture
-                        </span>
-                      </div>
-
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                        Reform programmes fail at the joins — between the analysis and the policy, between the policy and the money, between the money and the people expected to run it. Those joins are where we do our work.
-                      </p>
-
-                      {/* 4 Pillars Detailed Steps */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
-                        {DELIVERY_JOINS.map((join, idx) => (
-                          <div key={idx} className="p-3.5 rounded-2xl bg-[#050a12] border border-slate-800 flex flex-col gap-1.5">
-                            <div className="flex items-center gap-2">
-                              <span className="w-5 h-5 rounded-md bg-[#ff7e67] text-[#050a12] text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
-                                {join.step}
-                              </span>
-                              <h4 className="text-xs font-bold text-slate-100">{join.title}</h4>
-                            </div>
-                            <p className="text-[11px] text-slate-400 leading-relaxed pl-7">
-                              {join.desc}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Ecosystem Who We Advise */}
-                    <div className="space-y-3">
-                      <div className="text-xs font-mono font-bold uppercase tracking-[0.15em] text-slate-400">
-                        Client & Institutional Counterparts
-                      </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {CLIENT_ECOSYSTEM.map((client, idx) => {
-                          const ClientIcon = client.icon;
-                          return (
-                            <div 
-                              key={idx} 
-                              className="p-3.5 rounded-2xl bg-[#081220] border border-slate-800 flex flex-col gap-1 hover:border-[#ff7e67]/40 transition-colors"
-                            >
-                              <div className="flex items-center gap-2.5">
-                                <div className="w-7 h-7 rounded-lg bg-[#ff7e67]/10 text-[#ff7e67] flex items-center justify-center shrink-0">
-                                  <ClientIcon className="w-4 h-4" />
-                                </div>
-                                <span className="text-xs font-bold text-slate-100">
-                                  {client.label}
-                                </span>
-                              </div>
-                              <span className="text-[11px] text-slate-400 pl-9">
-                                {client.desc}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Geographic Footprint Note */}
-                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed border-l-2 border-[#ff7e67] pl-4 py-1 italic bg-[#081220]/60 rounded-r-2xl">
-                      We operate from Dhaka and work with counterparts in other sovereign jurisdictions. Where an engagement is confidential, we explicitly say so rather than describing it vaguely to imply something else.
-                    </p>
-
-                    {/* Navigation Action Buttons */}
-                    <div className="pt-2 flex flex-wrap gap-4">
-                      <button
-                        onClick={() => {
-                          setActiveTab('people');
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className="px-6 py-3.5 rounded-full bg-[#ff7e67] hover:bg-[#ff8f7b] text-[#050a12] font-bold text-xs sm:text-sm tracking-wide transition-all shadow-lg shadow-[#ff7e67]/20 cursor-pointer flex items-center gap-2"
-                      >
-                        <Users className="w-4 h-4" />
-                        <span>Explore IP3 People & Faculty</span>
-                      </button>
-                      <button
-                        onClick={() => {
-                          setActiveTab('approach');
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className="px-6 py-3.5 rounded-full bg-[#081220] hover:bg-slate-800 border border-slate-700 text-slate-200 font-medium text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-2"
-                      >
-                        <Compass className="w-4 h-4 text-[#ff7e67]" />
-                        <span>View 6-Stage Approach</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Right Core Principles Highlights Column */}
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#ff7e67] flex items-center gap-2">
-                        <FileCheck className="w-4 h-4" />
-                        <span>Core Operating Principles</span>
-                      </div>
-                      <button
-                        onClick={() => {
-                          setActiveTab('principles');
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className="text-[11px] font-mono text-[#ff7e67] hover:underline cursor-pointer flex items-center gap-1"
-                      >
-                        <span>View All 4 Standards</span>
-                        <ChevronRight className="w-3 h-3" />
-                      </button>
-                    </div>
-
-                    {PRINCIPLES.map((principle) => {
-                      const Icon = principle.icon;
-                      return (
-                        <div
-                          key={principle.title}
-                          className="p-5 sm:p-6 rounded-3xl bg-[#081220] border border-slate-800 hover:border-[#ff7e67]/60 transition-all duration-300 shadow-xl shadow-black/20 group relative overflow-hidden"
-                        >
-                          <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 rounded-xl bg-[#050a12] border border-[#ff7e67]/30 text-[#ff7e67] flex items-center justify-center shrink-0 group-hover:bg-[#ff7e67] group-hover:text-[#050a12] transition-colors duration-300 shadow-inner">
-                              <Icon className="w-5 h-5" aria-hidden="true" />
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center justify-between gap-2 mb-1.5">
-                                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ff7e67] bg-[#ff7e67]/10 px-2 py-0.5 rounded border border-[#ff7e67]/20">
-                                  {principle.tag}
-                                </span>
-                                <span className="font-mono text-xs text-slate-400">
-                                  {principle.index}
-                                </span>
-                              </div>
-                              <h3 className="text-sm sm:text-base font-bold text-slate-100 leading-snug group-hover:text-[#ff7e67] transition-colors">
-                                {principle.title}
-                              </h3>
-                              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-400">
-                                {principle.body}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Institutional Heritage & Milestone Timeline within Overview */}
-            <section className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16 border-b border-slate-800 bg-[#081220]/40">
-              <div className="max-w-5xl mx-auto space-y-12">
-                <div className="text-center max-w-3xl mx-auto space-y-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-xs font-mono font-bold text-[#ff7e67]">
-                    <History className="w-4 h-4" />
-                    <span>INSTITUTIONAL HERITAGE & TRACK RECORD</span>
-                  </div>
-                  <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100">
-                    Eighteen Years of Institutional Architecture
-                  </h2>
-                  <p className="text-sm sm:text-base text-slate-400">
-                    From pioneering public enterprise governance to nationwide digital survey infrastructure and green sovereign financing.
-                  </p>
-                </div>
-
-                {/* Vertical Milestone Flow */}
-                <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-32 space-y-8 pl-6 sm:pl-10">
-                  {TIMELINE_MILESTONES.map((item, idx) => (
-                    <div key={idx} className="relative group">
-                      <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[#081220] border-2 border-[#ff7e67] flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
-                        <div className="w-2 h-2 rounded-full bg-[#ff7e67]" />
-                      </div>
-
-                      <div className="sm:absolute sm:-left-32 sm:top-1 font-mono text-base font-bold text-[#ff7e67] mb-2 sm:mb-0">
-                        {item.year}
-                      </div>
-
-                      <div className="p-6 rounded-3xl bg-[#081220] border border-slate-800 group-hover:border-[#ff7e67]/50 transition-colors shadow-xl">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ff7e67] bg-[#ff7e67]/10 px-2 py-0.5 rounded border border-[#ff7e67]/20">
-                            {item.badge}
-                          </span>
-                        </div>
-                        <h3 className="text-lg font-bold text-slate-100 mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+            {/* Integrated Full About Us Overview Experience */}
+            <AboutOverviewView
+              onOpenTalk={onOpenTalk}
+              onOpenCollaborate={onOpenCollaborate}
+              onNavigateContact={onNavigateContact}
+              onNavigateApproach={() => {
+                setActiveTab('approach');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            />
 
             {/* Strategic Leadership Spotlight Card */}
-            <div id="executive">
+            <div id="executive" className="border-t border-[#3C3F45]">
               <ExecutiveCard
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
@@ -852,85 +642,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {/* ========================================================================= */}
-        {/* SUB-PAGE 04: PRINCIPLES                                                  */}
-        {/* ========================================================================= */}
-        {activeTab === 'principles' && (
-          <motion.div
-            key="tab-principles"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2 }}
-            id="principles"
-            className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16"
-          >
-            <div className="max-w-6xl mx-auto space-y-12">
-              <div className="text-center max-w-3xl mx-auto space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-xs font-mono font-bold text-[#ff7e67]">
-                  <Scale className="w-4 h-4" />
-                  <span>GOVERNANCE & ETHICAL CODES</span>
-                </div>
-                <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100">
-                  Standards of Evidence & Advisory Ethics
-                </h2>
-                <p className="text-sm sm:text-base text-slate-400">
-                  Our advisory relationships are grounded in legal rigor, reproducible empirical science, and strict institutional privacy.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {PRINCIPLES.map((principle) => {
-                  const Icon = principle.icon;
-                  return (
-                    <div
-                      key={principle.title}
-                      className="p-8 rounded-3xl bg-[#081220] border border-slate-800 hover:border-[#ff7e67]/60 transition-all duration-300 shadow-2xl flex flex-col justify-between"
-                    >
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div className="w-12 h-12 rounded-2xl bg-[#050a12] border border-[#ff7e67]/30 text-[#ff7e67] flex items-center justify-center">
-                            <Icon className="w-6 h-6" />
-                          </div>
-                          <span className="font-mono text-xs text-[#ff7e67] bg-[#ff7e67]/10 px-3 py-1 rounded-full border border-[#ff7e67]/20 font-bold">
-                            RULE {principle.index}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-slate-100">
-                          {principle.title}
-                        </h3>
-                        <p className="text-sm text-slate-400 leading-relaxed">
-                          {principle.body}
-                        </p>
-                      </div>
-
-                      <div className="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
-                        <span>Domain: {principle.tag}</span>
-                        <span className="text-[#ff7e67] font-bold">Verified Protocol</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="p-6 rounded-2xl bg-[#081220] border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="w-6 h-6 text-[#ff7e67] shrink-0" />
-                  <span className="text-xs sm:text-sm text-slate-400">
-                    Compliant with World Bank, ADB, and Sovereign Integrity & Anti-Corruption Frameworks.
-                  </span>
-                </div>
-                <button
-                  onClick={onNavigateContact}
-                  className="px-5 py-2.5 rounded-full bg-[#ff7e67] text-[#050a12] text-xs font-bold shrink-0 hover:bg-[#ff8f7b] transition-colors cursor-pointer"
-                >
-                  Request Compliance Disclosure
-                </button>
               </div>
             </div>
           </motion.div>

@@ -24,6 +24,9 @@ export interface FocusArea {
   targetSDGs: string[];
   featuredProjectTitle: string;
   featuredProjectSummary: string;
+  extendedProblem?: string;
+  extendedMethodology?: string;
+  measurableOutcomes?: { value: string; label: string; description: string }[];
 }
 
 export interface ServiceSolution {

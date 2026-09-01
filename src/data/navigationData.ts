@@ -40,7 +40,6 @@ export const primaryNav: PrimaryNavItem[] = [
       { label: 'Overview', href: '/about#overview', sectionId: '#overview', page: 'about', desc: 'Mission, institutional heritage, ecosystem & four strategic fronts' },
       { label: 'IP3 People', href: '/about#people', sectionId: '#people', page: 'about', desc: 'Global faculty of economists, researchers, fellows & executive leadership' },
       { label: 'Approach', href: '/about#approach', sectionId: '#approach', page: 'about', desc: '6-stage delivery lifecycle from complexity & evidence to sustainable handover' },
-      { label: 'Principles', href: '/about#principles', sectionId: '#principles', page: 'about', desc: 'Standards of evidence, operational realism & sovereign governance ethics' },
     ],
     columns: [
       {
@@ -49,7 +48,6 @@ export const primaryNav: PrimaryNavItem[] = [
           { label: '01. Overview', href: '/about#overview', sectionId: '#overview', page: 'about' },
           { label: '02. IP3 People', href: '/about#people', sectionId: '#people', page: 'about' },
           { label: '03. Approach', href: '/about#approach', sectionId: '#approach', page: 'about' },
-          { label: '04. Principles', href: '/about#principles', sectionId: '#principles', page: 'about' },
         ],
       },
       {
@@ -58,7 +56,6 @@ export const primaryNav: PrimaryNavItem[] = [
           { label: 'Mission & Operating Model', href: '/about#overview', sectionId: '#overview', page: 'about' },
           { label: 'Faculty & Global Fellows', href: '/about#people', sectionId: '#people', page: 'about' },
           { label: 'Delivery Lifecycle', href: '/about#approach', sectionId: '#approach', page: 'about' },
-          { label: 'Standards of Evidence', href: '/about#principles', sectionId: '#principles', page: 'about' },
         ],
       },
     ],
@@ -84,39 +81,41 @@ export const primaryNav: PrimaryNavItem[] = [
     sectionId: '#focus-areas',
     page: 'focus',
     links: [
-      { label: 'Climate Action & ESG Strategy', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus', desc: 'Decarbonization audits, circular economy & industrial ESG roadmaps' },
-      { label: 'Educational Innovation & Pedagogy', href: '/focus#focus-branch-1', sectionId: '#focus-branch-1', page: 'focus', desc: 'Digital learning platforms, ADB secondary education & curriculum reform' },
-      { label: 'Data & Digital Governance', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus', desc: 'Future-ready governance, municipal capacity (BMDF) & data ecosystems' },
+      { label: 'Climate Action, ESG & Sustainability', href: '/focus#climate', sectionId: '#climate', page: 'focus', desc: 'Decarbonization audits, circular economy & industrial ESG roadmaps' },
+      { label: 'Educational Innovation & Pedagogy', href: '/focus#education', sectionId: '#education', page: 'focus', desc: 'Digital learning platforms, ADB secondary education & curriculum reform' },
+      { label: 'Data & Digital Governance', href: '/focus#governance', sectionId: '#governance', page: 'focus', desc: 'Future-ready governance, municipal capacity (BMDF) & data ecosystems' },
     ],
     columns: [
       {
-        title: 'Strategic Priorities',
+        title: 'Focus Area Sub-Pages',
         links: [
-          { label: 'Decarbonization Pathways', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
-          { label: 'Green Bond Issuance & Audits', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
-          { label: 'Smart Grid & Clean Energy', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
+          { label: '01. Climate Action & ESG', href: '/focus#climate', sectionId: '#climate', page: 'focus' },
+          { label: '02. Educational Innovation', href: '/focus#education', sectionId: '#education', page: 'focus' },
+          { label: '03. Digital Governance', href: '/focus#governance', sectionId: '#governance', page: 'focus' },
+          { label: '00. All Strategic Pillars', href: '/focus#overview', sectionId: '#overview', page: 'focus' },
         ],
       },
       {
-        title: 'Human & Digital Systems',
+        title: 'Climate & Sustainability',
         links: [
-          { label: 'Blended Learning Platforms', href: '/focus#focus-branch-1', sectionId: '#focus-branch-1', page: 'focus' },
-          { label: 'Institutional Diagnostics', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus' },
-          { label: 'Public Financial Management', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus' },
+          { label: 'Decarbonization Pathways', href: '/focus#climate', sectionId: '#climate', page: 'focus' },
+          { label: 'The Circular Economist', href: '/focus#climate', sectionId: '#climate', page: 'focus' },
+          { label: 'ESG Enterprise Roadmap', href: '/focus#climate', sectionId: '#climate', page: 'focus' },
+          { label: 'Closed-Loop Textile Recycling', href: '/focus#climate', sectionId: '#climate', page: 'focus' },
         ],
       },
     ],
     promos: [
       {
+        eyebrow: 'FEATURED FOCUS',
+        title: 'Climate Action, ESG Strategy & Circular Economy Solutions',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800',
+        href: '/focus#climate',
+      },
+      {
         eyebrow: 'CASE STUDY',
         title: 'Mobilizing $140M in Green Municipal Bonds with BMDF',
         image: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=80&w=800',
-        href: '/focus',
-      },
-      {
-        eyebrow: 'INNOVATION SPOTLIGHT',
-        title: 'Adaptive Multi-Domain Systems for Emerging Economies',
-        image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=800',
         href: '/focus',
       },
     ],
@@ -164,53 +163,6 @@ export const primaryNav: PrimaryNavItem[] = [
         title: 'High-Frequency CAPI Field Survey Architecture in 12 Regions',
         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
         href: '/services#capi-surveys',
-      },
-    ],
-  },
-  {
-    id: 'approach',
-    label: 'Approch',
-    href: '#research',
-    sectionId: '#trailer',
-    page: 'approach',
-    links: [
-      { label: 'The Policy Shift Paradigm (Film)', href: '#trailer', sectionId: '#trailer', desc: 'Interactive visual exploration of macroeconomic systemic shifts' },
-      { label: 'Global Knowledge & Publications', href: '/approach', page: 'approach', desc: 'Peer-reviewed working papers, briefs, and empirical datasets' },
-      { label: 'Empirical Policy Working Papers', href: '/approach', page: 'approach', desc: 'Deep-dive analytical findings for multilateral institutions' },
-      { label: 'Executive Briefings & Podcasts', href: '#trailer', sectionId: '#trailer', desc: 'Thought leadership and foresight for policy makers' },
-    ],
-    columns: [
-      {
-        title: 'Publications & Series',
-        links: [
-          { label: 'Sovereign Transition White Papers', href: '/approach', page: 'approach' },
-          { label: 'Regional Economic Outlooks', href: '/approach', page: 'approach' },
-          { label: 'Public Sector Tech Disruption', href: '/approach', page: 'approach' },
-          { label: 'Sustainable Cities Monograph', href: '/approach', page: 'approach' },
-        ],
-      },
-      {
-        title: 'Data & Insights',
-        links: [
-          { label: 'CAPI Open Survey Instruments', href: '#services', sectionId: '#services' },
-          { label: 'Macroeconomic Scenario Models', href: '#trailer', sectionId: '#trailer' },
-          { label: 'Impact Evaluation Toolkits', href: '#services', sectionId: '#services' },
-          { label: 'Quarterly Policy Digest', href: '#connect', sectionId: '#connect' },
-        ],
-      },
-    ],
-    promos: [
-      {
-        eyebrow: 'FEATURE FILM',
-        title: 'The Policy Shift: Navigating Sovereign Transformation',
-        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
-        href: '#trailer',
-      },
-      {
-        eyebrow: 'WHITE PAPER',
-        title: 'Municipal Debt Architecture: From Development Aid to Investment Grade',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-        href: '/approach',
       },
     ],
   },
