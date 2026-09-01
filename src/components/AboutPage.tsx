@@ -126,6 +126,69 @@ const TIMELINE_MILESTONES = [
   }
 ];
 
+export const APPROACH_STAGES = [
+  {
+    step: '01',
+    id: 'complexity',
+    name: 'Complexity Diagnostics',
+    tag: 'Problem Framing',
+    title: 'Pressures arrive together, not one at a time',
+    desc: 'Fiscal constraints, climate exposure, institutional capacity, and technological friction interact simultaneously. We map compounding vulnerabilities across sectors.',
+    deliverable: 'Cross-Sector Vulnerability Matrix & Stress Testing',
+    focus: 'Institutional stress mapping & multi-variable friction modeling'
+  },
+  {
+    step: '02',
+    id: 'evidence',
+    name: 'Empirical Evidence',
+    tag: 'Ground Truth',
+    title: 'Establish what is actually happening on the ground',
+    desc: 'We gather primary field evidence where secondary data is thin, deploy high-frequency CAPI pipelines, and model the economics against administrative facts.',
+    deliverable: 'CAPI Field Baseline & Econometric Counterfactuals',
+    focus: 'Statistically powered household surveys & micro-simulations'
+  },
+  {
+    step: '03',
+    id: 'architecture',
+    name: 'Policy Architecture',
+    tag: 'Statutory Design',
+    title: 'Turn findings into statutory instruments somebody owns',
+    desc: 'Evidence becomes regulatory architecture, operating decrees, and institutional charters designed directly for the agency that will administer them.',
+    deliverable: 'Statutory Drafts & Inter-Agency Governance Charters',
+    focus: 'Administrative protocols & compliance frameworks'
+  },
+  {
+    step: '04',
+    id: 'mobilisation',
+    name: 'Capital Mobilisation',
+    tag: 'Financing Vehicles',
+    title: 'Structure the financing alongside the reform design',
+    desc: 'We align public expenditure, development finance, sovereign green bonds, and private co-investment so the reform is fully bankable from day one.',
+    deliverable: 'Blended Finance Vehicles & Sovereign Risk Allocations',
+    focus: 'MDB co-financing tranches & fiscal sustainability'
+  },
+  {
+    step: '05',
+    id: 'delivery',
+    name: 'Systems & Delivery',
+    tag: 'Execution Units',
+    title: 'Stand the digital and operational systems up and run them',
+    desc: 'We deploy cabinet-level Delivery Units, public financial management telemetry, and real-time MERLA monitoring platforms to guide live execution.',
+    deliverable: 'National MERLA Telemetry & PFM Execution Dashboards',
+    focus: 'Real-time indicators across 64 administrative districts'
+  },
+  {
+    step: '06',
+    id: 'transfer',
+    name: 'Capability Transfer',
+    tag: 'Sovereign Autonomy',
+    title: 'Deliberate institutional handoff and autonomous governance',
+    desc: 'We transfer full analytical models, codebases, and operational control to permanent civil servants so success does not depend on external presence.',
+    deliverable: 'Civil Service Fellowship Curricula & Codebase Repositories',
+    focus: 'Masterclasses, simulation war-rooms & policy handbooks'
+  }
+];
+
 interface AboutPageProps {
   darkMode?: boolean;
   setDarkMode?: (val: boolean) => void;
@@ -147,17 +210,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigateContact = () => {},
   onNavigateApproach = () => {},
 }) => {
-  // Available sub-tabs within the separate About Us page
-  const [activeTab, setActiveTab] = useState<'overview' | 'people' | 'principles' | 'timeline'>('overview');
+  // Available 4 core sub-pages within About Us: overview, people, approach, principles
+  const [activeTab, setActiveTab] = useState<'overview' | 'people' | 'approach' | 'principles'>('overview');
+  const [activeApproachStage, setActiveApproachStage] = useState<number>(0);
 
   useEffect(() => {
     if (initialSection) {
-      if (initialSection.includes('people') || initialSection.includes('team') || initialSection.includes('faculty')) {
+      if (initialSection.includes('people') || initialSection.includes('team') || initialSection.includes('faculty') || initialSection.includes('executive')) {
         setActiveTab('people');
-      } else if (initialSection.includes('principles') || initialSection.includes('governance')) {
+      } else if (initialSection.includes('approach') || initialSection.includes('methodology') || initialSection.includes('lifecycle')) {
+        setActiveTab('approach');
+      } else if (initialSection.includes('principles') || initialSection.includes('governance') || initialSection.includes('ethics')) {
         setActiveTab('principles');
-      } else if (initialSection.includes('timeline') || initialSection.includes('heritage')) {
-        setActiveTab('timeline');
       } else {
         setActiveTab('overview');
       }
@@ -197,7 +261,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             <span className="text-slate-400">About Us</span>
             <ChevronRight className="w-3.5 h-3.5 opacity-60" />
             <span className="text-[#ff7e67] font-semibold capitalize">
-              {activeTab === 'overview' ? 'Institutional Overview' : activeTab === 'people' ? 'IP3 People & Faculty' : activeTab === 'principles' ? 'Operating Principles' : 'Heritage & Milestones'}
+              {activeTab === 'overview' ? '01. Institutional Overview' : activeTab === 'people' ? '02. IP3 People & Faculty' : activeTab === 'approach' ? '03. Methodological Approach' : '04. Operating Principles'}
             </span>
           </nav>
 
@@ -213,18 +277,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-100 leading-[1.1]">
                 {activeTab === 'overview' && 'An Advisory Firm Built for Institutional Longevity'}
                 {activeTab === 'people' && 'IP3 People, Faculty & Leadership'}
+                {activeTab === 'approach' && 'Empirical Research, Policy Design & Delivery'}
                 {activeTab === 'principles' && 'Standards of Evidence & Operating Principles'}
-                {activeTab === 'timeline' && 'Institutional Heritage & Milestone Track Record'}
               </h1>
             </div>
 
-            {/* Sub-Page Navigation Tabs */}
-            <div className="flex items-center flex-wrap p-1.5 rounded-full bg-[#081220] border border-slate-800 shadow-inner shrink-0">
+            {/* Sub-Page Navigation Tabs (Overview, IP3 People, Approach, Principles) */}
+            <div className="flex items-center flex-wrap p-1.5 rounded-full bg-[#081220] border border-slate-800 shadow-inner shrink-0 gap-1">
               {[
-                { id: 'overview', label: 'Overview', icon: Landmark },
-                { id: 'people', label: 'IP3 People', icon: Users },
-                { id: 'principles', label: 'Principles', icon: FileCheck },
-                { id: 'timeline', label: 'Milestones', icon: History },
+                { id: 'overview', label: 'Overview', icon: Landmark, number: '01' },
+                { id: 'people', label: 'IP3 People', icon: Users, number: '02' },
+                { id: 'approach', label: 'Approach', icon: Compass, number: '03' },
+                { id: 'principles', label: 'Principles', icon: FileCheck, number: '04' },
               ].map((tab) => {
                 const TabIcon = tab.icon;
                 const isActive = activeTab === tab.id;
@@ -236,7 +300,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                       setActiveTab(tab.id as any);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className={`relative px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                    className={`relative px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-2 ${
                       isActive
                         ? 'text-[#050a12] shadow-md shadow-black/40'
                         : 'text-slate-400 hover:text-slate-100'
@@ -249,6 +313,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                       />
                     )}
+                    <span className={`relative z-10 font-mono text-[11px] font-bold ${isActive ? 'text-[#050a12]' : 'text-[#ff7e67]'}`}>
+                      {tab.number}
+                    </span>
                     <TabIcon className="w-3.5 h-3.5 relative z-10" />
                     <span className="relative z-10">{tab.label}</span>
                   </button>
@@ -261,8 +328,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <p className="text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed font-normal mt-6 mb-8">
             {activeTab === 'overview' && 'IP3 Consulting Limited works with sovereign governments, multilateral development institutions, and enterprise leaders to transform systemic risk into durable institutional capacity through empirical research, policy design, financing structures, and public delivery.'}
             {activeTab === 'people' && 'Meet the economists, public policy researchers, data architects, and executive advisors driving systemic reform and empirical policy analysis across global jurisdictions.'}
+            {activeTab === 'approach' && 'Our 6-stage delivery lifecycle bridges the gap between high-level analytical modeling and operational civil service implementation, ensuring long-term sovereign autonomy.'}
             {activeTab === 'principles' && 'Our work is governed by strict evidence standards, operational realism, and non-disclosure protocols. We publish only what we can verify and stay past the recommendation.'}
-            {activeTab === 'timeline' && 'Over nearly two decades of sovereign policy reform, IP3 has mobilized over $2.4B in program value, advising on macroeconomic governance, spatial analytics, and climate resilience.'}
           </p>
 
           {/* Quick Metrics Strip */}
@@ -289,6 +356,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
       {/* Main Tabbed Content Area */}
       <AnimatePresence mode="wait">
+        {/* ========================================================================= */}
+        {/* SUB-PAGE 01: OVERVIEW                                                    */}
+        {/* ========================================================================= */}
         {activeTab === 'overview' && (
           <motion.div
             key="tab-overview"
@@ -401,11 +471,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                         <span>Explore IP3 People & Faculty</span>
                       </button>
                       <button
-                        onClick={onNavigateApproach}
+                        onClick={() => {
+                          setActiveTab('approach');
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                         className="px-6 py-3.5 rounded-full bg-[#081220] hover:bg-slate-800 border border-slate-700 text-slate-200 font-medium text-xs sm:text-sm transition-all cursor-pointer flex items-center gap-2"
                       >
-                        <span>How We Deliver</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <Compass className="w-4 h-4 text-[#ff7e67]" />
+                        <span>View 6-Stage Approach</span>
                       </button>
                     </div>
                   </div>
@@ -465,6 +538,53 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </div>
             </section>
 
+            {/* Institutional Heritage & Milestone Timeline within Overview */}
+            <section className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16 border-b border-slate-800 bg-[#081220]/40">
+              <div className="max-w-5xl mx-auto space-y-12">
+                <div className="text-center max-w-3xl mx-auto space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-xs font-mono font-bold text-[#ff7e67]">
+                    <History className="w-4 h-4" />
+                    <span>INSTITUTIONAL HERITAGE & TRACK RECORD</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100">
+                    Eighteen Years of Institutional Architecture
+                  </h2>
+                  <p className="text-sm sm:text-base text-slate-400">
+                    From pioneering public enterprise governance to nationwide digital survey infrastructure and green sovereign financing.
+                  </p>
+                </div>
+
+                {/* Vertical Milestone Flow */}
+                <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-32 space-y-8 pl-6 sm:pl-10">
+                  {TIMELINE_MILESTONES.map((item, idx) => (
+                    <div key={idx} className="relative group">
+                      <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[#081220] border-2 border-[#ff7e67] flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                        <div className="w-2 h-2 rounded-full bg-[#ff7e67]" />
+                      </div>
+
+                      <div className="sm:absolute sm:-left-32 sm:top-1 font-mono text-base font-bold text-[#ff7e67] mb-2 sm:mb-0">
+                        {item.year}
+                      </div>
+
+                      <div className="p-6 rounded-3xl bg-[#081220] border border-slate-800 group-hover:border-[#ff7e67]/50 transition-colors shadow-xl">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ff7e67] bg-[#ff7e67]/10 px-2 py-0.5 rounded border border-[#ff7e67]/20">
+                            {item.badge}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-100 mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
             {/* Strategic Leadership Spotlight Card */}
             <div id="executive">
               <ExecutiveCard
@@ -477,6 +597,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </motion.div>
         )}
 
+        {/* ========================================================================= */}
+        {/* SUB-PAGE 02: IP3 PEOPLE                                                  */}
+        {/* ========================================================================= */}
         {activeTab === 'people' && (
           <motion.div
             key="tab-people"
@@ -550,6 +673,193 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           </motion.div>
         )}
 
+        {/* ========================================================================= */}
+        {/* SUB-PAGE 03: APPROACH                                                    */}
+        {/* ========================================================================= */}
+        {activeTab === 'approach' && (
+          <motion.div
+            key="tab-approach"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.2 }}
+            id="approach"
+            className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16"
+          >
+            <div className="max-w-7xl mx-auto space-y-16">
+              {/* Top Approach Intro Banner */}
+              <div className="text-center max-w-3xl mx-auto space-y-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-xs font-mono font-bold text-[#ff7e67]">
+                  <Compass className="w-4 h-4" />
+                  <span>THE 6-STAGE DELIVERY METHODOLOGY</span>
+                </div>
+                <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100">
+                  How We Deliver Across The Joins
+                </h2>
+                <p className="text-sm sm:text-base text-slate-400">
+                  Sovereign reform fails when analysis is decoupled from statutory reality, money, and operational capacity. Our structured lifecycle ensures seamless execution.
+                </p>
+              </div>
+
+              {/* Interactive 6-Stage Lifecycle Selector */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                {APPROACH_STAGES.map((stage, idx) => {
+                  const isSelected = activeApproachStage === idx;
+                  return (
+                    <button
+                      key={stage.id}
+                      type="button"
+                      onClick={() => setActiveApproachStage(idx)}
+                      className={`p-4 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-3 ${
+                        isSelected 
+                          ? 'bg-[#ff7e67] border-[#ff7e67] text-[#050a12] shadow-xl shadow-[#ff7e67]/20 scale-[1.02]' 
+                          : 'bg-[#081220] border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className={`font-mono text-xs font-bold ${isSelected ? 'text-[#050a12]' : 'text-[#ff7e67]'}`}>
+                          STAGE {stage.step}
+                        </span>
+                        {isSelected && <CheckCircle2 className="w-4 h-4 text-[#050a12]" />}
+                      </div>
+                      <div>
+                        <div className={`text-xs font-bold ${isSelected ? 'text-[#050a12]' : 'text-slate-100'}`}>
+                          {stage.name}
+                        </div>
+                        <div className={`text-[10px] font-mono mt-1 ${isSelected ? 'text-[#050a12]/80' : 'text-slate-400'}`}>
+                          {stage.tag}
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active Stage Deep-Dive Card */}
+              {(() => {
+                const currentStage = APPROACH_STAGES[activeApproachStage];
+                return (
+                  <div className="p-8 sm:p-12 rounded-3xl bg-[#081220] border border-slate-800 shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff7e67]/5 rounded-full blur-3xl pointer-events-none" />
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+                      <div className="lg:col-span-7 space-y-6">
+                        <div className="flex items-center gap-3">
+                          <span className="w-8 h-8 rounded-lg bg-[#ff7e67] text-[#050a12] font-mono text-sm font-bold flex items-center justify-center">
+                            {currentStage.step}
+                          </span>
+                          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff7e67]">
+                            {currentStage.tag}
+                          </span>
+                        </div>
+
+                        <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-100 leading-tight">
+                          {currentStage.title}
+                        </h3>
+
+                        <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                          {currentStage.desc}
+                        </p>
+
+                        <div className="p-4 rounded-2xl bg-[#050a12] border border-slate-800 space-y-2">
+                          <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                            Empirical Focus Area
+                          </div>
+                          <div className="text-sm font-semibold text-slate-200">
+                            {currentStage.focus}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="lg:col-span-5 space-y-4">
+                        <div className="p-6 rounded-2xl bg-[#050a12] border border-[#ff7e67]/30 space-y-4">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-mono font-bold uppercase text-[#ff7e67]">
+                              PRIMARY DELIVERABLE
+                            </span>
+                            <FileCheck className="w-4 h-4 text-[#ff7e67]" />
+                          </div>
+                          <h4 className="text-base sm:text-lg font-bold text-slate-100">
+                            {currentStage.deliverable}
+                          </h4>
+                          <p className="text-xs text-slate-400 leading-relaxed">
+                            Formally verified and handed over with complete technical documentation, data scripts, and executive briefings.
+                          </p>
+                        </div>
+
+                        <div className="flex items-center justify-between gap-3 pt-2">
+                          <button
+                            type="button"
+                            onClick={() => setActiveApproachStage((prev) => (prev > 0 ? prev - 1 : APPROACH_STAGES.length - 1))}
+                            className="px-4 py-2.5 rounded-full bg-[#050a12] hover:bg-slate-800 border border-slate-800 text-xs font-mono text-slate-300 transition-colors cursor-pointer"
+                          >
+                            ← Previous Stage
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setActiveApproachStage((prev) => (prev < APPROACH_STAGES.length - 1 ? prev + 1 : 0))}
+                            className="px-4 py-2.5 rounded-full bg-[#ff7e67] hover:bg-[#ff8f7b] text-[#050a12] text-xs font-mono font-bold transition-colors cursor-pointer"
+                          >
+                            Next Stage →
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* 4 Strategic Delivery Joins Detailed Grid */}
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-[#ff7e67] mb-1">
+                      INTEGRATED JOIN ARCHITECTURE
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-100">
+                      Where Reform Programs Typically Fail
+                    </h3>
+                  </div>
+                  <button
+                    onClick={onNavigateContact}
+                    className="hidden sm:flex items-center gap-2 text-xs font-mono font-bold text-[#ff7e67] hover:underline"
+                  >
+                    <span>Request Methodology Brief</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {DELIVERY_JOINS.map((join, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-3xl bg-[#081220] border border-slate-800 hover:border-[#ff7e67]/50 transition-all flex flex-col justify-between gap-4"
+                    >
+                      <div className="space-y-3">
+                        <div className="w-8 h-8 rounded-xl bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-[#ff7e67] font-mono text-xs font-bold flex items-center justify-center">
+                          {join.step}
+                        </div>
+                        <h4 className="text-base font-bold text-slate-100 leading-snug">
+                          {join.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 leading-relaxed">
+                          {join.desc}
+                        </p>
+                      </div>
+                      <div className="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-[#ff7e67]">
+                        Verified Delivery Join
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* SUB-PAGE 04: PRINCIPLES                                                  */}
+        {/* ========================================================================= */}
         {activeTab === 'principles' && (
           <motion.div
             key="tab-principles"
@@ -617,68 +927,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 </div>
                 <button
                   onClick={onNavigateContact}
-                  className="px-5 py-2.5 rounded-full bg-[#ff7e67] text-[#050a12] text-xs font-bold shrink-0 hover:bg-[#ff8f7b] transition-colors"
+                  className="px-5 py-2.5 rounded-full bg-[#ff7e67] text-[#050a12] text-xs font-bold shrink-0 hover:bg-[#ff8f7b] transition-colors cursor-pointer"
                 >
                   Request Compliance Disclosure
                 </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
-        {activeTab === 'timeline' && (
-          <motion.div
-            key="tab-timeline"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2 }}
-            id="timeline"
-            className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16"
-          >
-            <div className="max-w-5xl mx-auto space-y-12">
-              <div className="text-center max-w-3xl mx-auto space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff7e67]/10 border border-[#ff7e67]/30 text-xs font-mono font-bold text-[#ff7e67]">
-                  <History className="w-4 h-4" />
-                  <span>INSTITUTIONAL HERITAGE</span>
-                </div>
-                <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-100">
-                  Eighteen Years of Institutional Architecture
-                </h2>
-                <p className="text-sm sm:text-base text-slate-400">
-                  From pioneering public enterprise governance to nationwide digital survey infrastructure and green sovereign financing.
-                </p>
-              </div>
-
-              {/* Vertical Milestone Flow */}
-              <div className="relative border-l-2 border-slate-800 ml-4 sm:ml-32 space-y-10 pl-6 sm:pl-10">
-                {TIMELINE_MILESTONES.map((item, idx) => (
-                  <div key={idx} className="relative group">
-                    {/* Circle Node */}
-                    <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-[#081220] border-2 border-[#ff7e67] flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
-                      <div className="w-2 h-2 rounded-full bg-[#ff7e67]" />
-                    </div>
-
-                    {/* Year Label */}
-                    <div className="sm:absolute sm:-left-32 sm:top-1 font-mono text-base font-bold text-[#ff7e67] mb-2 sm:mb-0">
-                      {item.year}
-                    </div>
-
-                    <div className="p-6 rounded-3xl bg-[#081220] border border-slate-800 group-hover:border-[#ff7e67]/50 transition-colors shadow-xl">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#ff7e67] bg-[#ff7e67]/10 px-2 py-0.5 rounded border border-[#ff7e67]/20">
-                          {item.badge}
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-100 mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </motion.div>

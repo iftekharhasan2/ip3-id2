@@ -44,11 +44,13 @@ const Toggle: React.FC<{ label: string; checked: boolean; onChange: (v: boolean)
   </button>
 );
 
-const PAGE_OPTIONS: Array<{ value: '' | 'home' | 'about' | 'approach'; label: string }> = [
+const PAGE_OPTIONS: Array<{ value: '' | 'home' | 'about' | 'approach' | 'focus' | 'services'; label: string }> = [
   { value: '', label: 'Scroll on current page' },
   { value: 'home', label: 'Home page' },
   { value: 'about', label: 'About page' },
   { value: 'approach', label: 'Approach page' },
+  { value: 'focus', label: 'Focus Areas page' },
+  { value: 'services', label: 'Our Services (5 Practices)' },
 ];
 
 /* ------------------------------ link sub-editor --------------------------- */

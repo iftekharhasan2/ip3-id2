@@ -41,11 +41,18 @@ export const FourFrontsSection: React.FC = () => {
   return (
     <>
       {/* Section 1: Publications & Knowledge Matrix */}
-      <section id="about" className="relative bg-[#050a12] text-slate-100 py-8 md:py-12 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 font-serif tracking-tight text-center">
-            {research.sectionTitle}
-          </h1>
+      <section id="about" className="relative bg-[#050a12] text-slate-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
+        {/* Subtle Ambient Background Lighting */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[750px] h-[300px] bg-[#ff7e67]/5 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-[400px] h-[300px] bg-[#2dd4bf]/5 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12 relative z-10">
+          {/* Separate Main Heading Block */}
+          <div id="about-main-heading" className="max-w-5xl mx-auto text-center">
+            <h1 className="text-[36px] sm:text-[42px] md:text-[48px] font-extrabold text-slate-100 font-serif tracking-tight leading-tight drop-shadow-md">
+              {research.sectionTitle && research.sectionTitle !== "Research and Insights" ? research.sectionTitle : "Institutional Deck"}
+            </h1>
+          </div>
 
           {/* Publications & Knowledge Matrix Card */}
           <div 
@@ -71,7 +78,7 @@ export const FourFrontsSection: React.FC = () => {
               
               {/* Header Segment: Integrated Pill Switcher & Progress Indicator */}
               <div className="p-2 sm:p-2.5 bg-[#081220] border-b border-slate-800/80">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {fronts.map((front, idx) => {
                     const isActive = safeIdx === idx;
                     return (
@@ -80,18 +87,20 @@ export const FourFrontsSection: React.FC = () => {
                         onClick={() => {
                           setActiveTabIdx(idx);
                         }}
-                        className={`relative py-2.5 px-3 rounded-xl font-mono text-[18px] tracking-wider transition-all duration-300 text-center cursor-pointer overflow-hidden ${
+                        className={`relative py-2.5 px-3.5 rounded-xl text-sm sm:text-[15px] transition-all duration-300 text-center cursor-pointer overflow-hidden border ${
                           isActive
-                            ? 'bg-[#ff7e67] text-[#070d18] font-bold shadow-md shadow-[#ff7e67]/30'
-                            : 'text-slate-400 hover:text-white hover:bg-slate-800/50 border border-transparent'
+                            ? 'bg-[#ff7e67] text-[#050a12] font-bold border-[#ff7e67] shadow-lg shadow-[#ff7e67]/20'
+                            : 'bg-slate-900/40 text-slate-300 hover:text-white hover:bg-slate-800/60 border-slate-800/80 hover:border-slate-700 font-medium'
                         }`}
                       >
-                        <span className="relative z-10 truncate block text-[18px]">{front.tabLabel}</span>
+                        <span className="relative z-10 truncate block text-sm sm:text-[15px] leading-snug tracking-wide font-sans">
+                          {front.tabLabel}
+                        </span>
                         {/* Auto-rotation active progress line */}
                         {isActive && !isPaused && (
                           <span 
                             key={safeIdx}
-                            className="absolute bottom-0 left-0 h-0.5 bg-white/80 animate-[progress_4.5s_linear]" 
+                            className="absolute bottom-0 left-0 h-0.5 bg-[#050a12]/60 animate-[progress_4.5s_linear]" 
                             style={{ width: '100%' }}
                           />
                         )}

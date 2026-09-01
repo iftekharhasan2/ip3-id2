@@ -8,7 +8,7 @@ interface MobileNavProps {
   open: boolean;
   onClose: () => void;
   onOpenSearch: () => void;
-  onNavigate?: (page: 'home' | 'about' | 'approach' | 'focus', sectionId?: string) => void;
+  onNavigate?: (page: 'home' | 'about' | 'approach' | 'focus' | 'services', sectionId?: string) => void;
 }
 
 export const MobileNav: React.FC<MobileNavProps> = ({
@@ -31,7 +31,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
     setExpandedItem((prev) => (prev === id ? null : id));
   };
 
-  const handleLinkClick = (e: React.MouseEvent, href: string, sectionId?: string, page?: 'home' | 'about' | 'approach' | 'focus') => {
+  const handleLinkClick = (e: React.MouseEvent, href: string, sectionId?: string, page?: 'home' | 'about' | 'approach' | 'focus' | 'services') => {
     e.preventDefault();
     onClose();
 

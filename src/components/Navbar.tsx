@@ -10,8 +10,8 @@ import { defaultNavbarConfig } from '../data/navigationData';
 import { useCMS } from '../context/CMSContext';
 
 interface NavbarProps {
-  currentPage?: 'home' | 'about' | 'approach' | 'focus';
-  onNavigate?: (page: 'home' | 'about' | 'approach' | 'focus', sectionId?: string) => void;
+  currentPage?: 'home' | 'about' | 'approach' | 'focus' | 'services';
+  onNavigate?: (page: 'home' | 'about' | 'approach' | 'focus' | 'services', sectionId?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -179,6 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   const isCurrentPage = 
                     (item.id === 'about' && currentPage === 'about') ||
                     (item.id === 'focus-areas' && currentPage === 'focus') ||
+                    (item.id === 'services' && currentPage === 'services') ||
                     (item.id === 'approach' && currentPage === 'approach') ||
                     (item.id === 'research' && currentPage === 'approach');
 

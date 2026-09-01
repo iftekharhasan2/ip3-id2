@@ -7,14 +7,14 @@ import { useCMS } from '../context/CMSContext';
 interface MegaMenuProps {
   item: PrimaryNavItem;
   onClose: () => void;
-  onNavigate?: (page: 'home' | 'about' | 'approach' | 'focus', sectionId?: string) => void;
+  onNavigate?: (page: 'home' | 'about' | 'approach' | 'focus' | 'services', sectionId?: string) => void;
 }
 
 export const MegaMenu: React.FC<MegaMenuProps> = ({ item, onClose, onNavigate }) => {
   const { data } = useCMS();
   const badge = data.navbar?.megaMenuBadge ?? defaultNavbarConfig.megaMenuBadge;
 
-  const handleLinkClick = (e: React.MouseEvent, href: string, sectionId?: string, page?: 'home' | 'about' | 'approach' | 'focus') => {
+  const handleLinkClick = (e: React.MouseEvent, href: string, sectionId?: string, page?: 'home' | 'about' | 'approach' | 'focus' | 'services') => {
     e.preventDefault();
     onClose();
 

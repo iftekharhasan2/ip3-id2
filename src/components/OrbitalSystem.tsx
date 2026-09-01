@@ -173,7 +173,7 @@ export const OrbitalSystem: React.FC<OrbitalSystemProps> = ({
           onMouseEnter={() => setHoveredNode('policy')}
           onMouseLeave={() => setHoveredNode(null)}
           onClick={() => onSelectNode('policy')}
-          className={`group px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+          className={`group pl-4 pr-[16px] mr-[16px] py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
             hoveredNode === 'policy' || selectedNodeId === 'policy'
               ? 'bg-[#261313] border-[#ff7e67] text-[#ffa190] shadow-[0_0_20px_rgba(255,126,103,0.4)] ring-1 ring-[#ff7e67]'
               : 'bg-[#071322]/80 border border-slate-700/60 text-slate-300 hover:text-white hover:border-slate-500'
@@ -200,7 +200,7 @@ export const OrbitalSystem: React.FC<OrbitalSystemProps> = ({
           onMouseEnter={() => setHoveredNode('evidence')}
           onMouseLeave={() => setHoveredNode(null)}
           onClick={() => onSelectNode('evidence')}
-          className={`group px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+          className={`group ml-[30px] px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
             hoveredNode === 'evidence' || selectedNodeId === 'evidence'
               ? 'bg-[#0d221c] border-emerald-400 text-emerald-300 shadow-[0_0_20px_rgba(52,211,153,0.4)] ring-1 ring-emerald-400'
               : 'bg-[#071322]/80 border border-slate-700/60 text-slate-300 hover:text-white hover:border-slate-500'

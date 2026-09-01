@@ -131,9 +131,6 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
         }}
       />
 
-      {/* Decorative left rim orb */}
-      <div className="hidden lg:block pointer-events-none absolute -left-6 top-[285px] w-5 h-5 rounded-full bg-[#ff7e67]/20 blur-[2px] border border-slate-700" />
-
       {/* Main Section Header */}
       <div className="space-y-6 sm:space-y-8">
         {/* Exact Typography Clone */}

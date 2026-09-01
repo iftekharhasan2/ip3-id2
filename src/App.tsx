@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { AboutPage } from './components/AboutPage';
 import { ApproachPage } from './components/ApproachPage';
 import { FocusPage } from './components/FocusPage';
+import { ServicesPage } from './components/ServicesPage';
 import { Ip3TrailerSection } from './components/Ip3TrailerSection';
 import { PolicyShowcaseSection } from './components/PolicyShowcaseSection';
 import { FourFrontsSection } from './components/FourFrontsSection';
@@ -22,7 +23,7 @@ import { ContentGate } from './components/ContentGate';
 function AppContent() {
   const { data, themeMode, setThemeMode, toggleTheme } = useCMS();
 
-  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'approach' | 'focus'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'about' | 'approach' | 'focus' | 'services'>('home');
   const [currentSlideId, setCurrentSlideId] = useState<number>(1);
   const [autoplayInterval] = useState<number>(3000);
 
@@ -47,7 +48,7 @@ function AppContent() {
     setCurrentSlideId(id);
   };
 
-  const handleNavigate = (page: 'home' | 'about' | 'approach' | 'focus', sectionId?: string) => {
+  const handleNavigate = (page: 'home' | 'about' | 'approach' | 'focus' | 'services', sectionId?: string) => {
     setCurrentPage(page);
     setTargetSection(sectionId);
     if (sectionId) {
@@ -104,6 +105,21 @@ function AppContent() {
           onNavigateContact={() => handleNavigate('home', '#contact-advisory')}
           onNavigateApproach={() => handleNavigate('approach')}
           onNavigateAbout={() => handleNavigate('about')}
+        />
+      ) : currentPage === 'services' ? (
+        /* Dedicated Separate Services Page with 5 Sub-Pages */
+        <ServicesPage
+          initialSubPageId={targetSection}
+          onOpenTalk={() => setIsTalkModalOpen(true)}
+          onOpenCollaborate={(area) => {
+            setCollaborateArea(area || 'Sovereign Advisory & Systems');
+            setIsCollaborateModalOpen(true);
+          }}
+          onNavigateHome={() => handleNavigate('home', '#hero')}
+          onNavigateContact={() => handleNavigate('home', '#contact-advisory')}
+          onNavigateAbout={() => handleNavigate('about')}
+          onNavigateApproach={() => handleNavigate('approach')}
+          onNavigateFocus={() => handleNavigate('focus')}
         />
       ) : (
         /* Main Home Page Stream */

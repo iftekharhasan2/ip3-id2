@@ -10,7 +10,7 @@ export interface NavLinkItem {
   href: string;
   sectionId?: string;
   desc?: string;
-  page?: 'home' | 'about' | 'approach' | 'focus';
+  page?: 'home' | 'about' | 'approach' | 'focus' | 'services';
 }
 
 export interface NavColumnItem {
@@ -23,7 +23,7 @@ export interface PrimaryNavItem {
   label: string;
   href: string;
   sectionId: string;
-  page?: 'home' | 'about' | 'approach' | 'focus';
+  page?: 'home' | 'about' | 'approach' | 'focus' | 'services';
   links: NavLinkItem[];
   columns: NavColumnItem[];
   promos: NavPromoItem[];
@@ -34,31 +34,31 @@ export const primaryNav: PrimaryNavItem[] = [
     id: 'about',
     label: 'About Us',
     href: '/about',
-    sectionId: '#people',
+    sectionId: '#overview',
     page: 'about',
     links: [
-      { label: 'IP3 People & Faculty', href: '/about#people', sectionId: '#people', page: 'about', desc: 'Our researchers, economists, advisors, fellows, and leadership team' },
-      { label: 'Executive Leadership & Founder', href: '/about#executive', sectionId: '#executive', page: 'about', desc: 'Managing Director & Advisory Practice Leaders' },
-      { label: 'Mission & Institutional Heritage', href: '/about#overview', sectionId: '#overview', page: 'about', desc: 'Operating model, standards of evidence & systemic governance' },
-      { label: 'Four Strategic Fronts Model', href: '#four-fronts', sectionId: '#four-fronts', desc: 'Interconnected pillars of institutional excellence' },
+      { label: 'Overview', href: '/about#overview', sectionId: '#overview', page: 'about', desc: 'Mission, institutional heritage, ecosystem & four strategic fronts' },
+      { label: 'IP3 People', href: '/about#people', sectionId: '#people', page: 'about', desc: 'Global faculty of economists, researchers, fellows & executive leadership' },
+      { label: 'Approach', href: '/about#approach', sectionId: '#approach', page: 'about', desc: '6-stage delivery lifecycle from complexity & evidence to sustainable handover' },
+      { label: 'Principles', href: '/about#principles', sectionId: '#principles', page: 'about', desc: 'Standards of evidence, operational realism & sovereign governance ethics' },
     ],
     columns: [
       {
-        title: 'IP3 People & Leadership',
+        title: 'About Sub-Pages',
         links: [
-          { label: 'All IP3 People & Faculty', href: '/about#people', sectionId: '#people', page: 'about' },
-          { label: 'Executive Leadership & Founder', href: '/about#executive', sectionId: '#executive', page: 'about' },
-          { label: 'Principal Economists & Researchers', href: '/about#people', sectionId: '#people', page: 'about' },
-          { label: 'Senior Advisors & Global Fellows', href: '/about#people', sectionId: '#people', page: 'about' },
+          { label: '01. Overview', href: '/about#overview', sectionId: '#overview', page: 'about' },
+          { label: '02. IP3 People', href: '/about#people', sectionId: '#people', page: 'about' },
+          { label: '03. Approach', href: '/about#approach', sectionId: '#approach', page: 'about' },
+          { label: '04. Principles', href: '/about#principles', sectionId: '#principles', page: 'about' },
         ],
       },
       {
         title: 'Institutional Governance',
         links: [
           { label: 'Mission & Operating Model', href: '/about#overview', sectionId: '#overview', page: 'about' },
-          { label: 'Core Operating Principles', href: '/about#overview', sectionId: '#overview', page: 'about' },
-          { label: 'Global Compliance & Ethics', href: '/about#overview', sectionId: '#overview', page: 'about' },
-          { label: 'Multilateral Accord Frameworks', href: '#trust-matrix', sectionId: '#trust-matrix' },
+          { label: 'Faculty & Global Fellows', href: '/about#people', sectionId: '#people', page: 'about' },
+          { label: 'Delivery Lifecycle', href: '/about#approach', sectionId: '#approach', page: 'about' },
+          { label: 'Standards of Evidence', href: '/about#principles', sectionId: '#principles', page: 'about' },
         ],
       },
     ],
@@ -70,10 +70,10 @@ export const primaryNav: PrimaryNavItem[] = [
         href: '/about#people',
       },
       {
-        eyebrow: 'LEADERSHIP PROFILE',
-        title: 'Ahmmad Zaman Tariq on Institutional Transformation & Agility',
-        image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800',
-        href: '/about#executive',
+        eyebrow: 'OUR APPROACH',
+        title: 'The 6-stage lifecycle from systemic complexity to sustainable sovereign delivery',
+        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
+        href: '/about#approach',
       },
     ],
   },
@@ -124,46 +124,46 @@ export const primaryNav: PrimaryNavItem[] = [
   {
     id: 'services',
     label: 'Our Services',
-    href: '#services',
+    href: '/services',
     sectionId: '#services',
+    page: 'services',
     links: [
-      { label: 'Macro & Sector Policy Advisory', href: '#services', sectionId: '#services', desc: 'Fiscal frameworks, industrial policy & trade reform' },
-      { label: 'MERLA Monitoring & Evaluation', href: '#services', sectionId: '#services', desc: 'Impact measurement, dashboards & adaptive learning' },
-      { label: 'Program & Survey Design (CAPI)', href: '#services', sectionId: '#services', desc: 'Large-scale socio-economic & firm surveys' },
-      { label: 'Digital Transformation & Systems', href: '#services', sectionId: '#services', desc: 'Public sector automation & workflow digitization' },
+      { label: 'Macro & Sector Policy Advisory', href: '/services#macro-policy', sectionId: '#macro-policy', page: 'services', desc: 'Fiscal frameworks, industrial policy & sovereign debt modeling' },
+      { label: 'MERLA Monitoring & Evaluation', href: '/services#merla', sectionId: '#merla', page: 'services', desc: 'Impact measurement, telemetry dashboards & adaptive learning' },
+      { label: 'CAPI & Field Survey Architecture', href: '/services#capi-surveys', sectionId: '#capi-surveys', page: 'services', desc: 'Large-scale socio-economic censuses & high-frequency data pipelines' },
+      { label: 'Digital Transformation & Civic Systems', href: '/services#digital-systems', sectionId: '#digital-systems', page: 'services', desc: 'PFM modernization, civic registries & municipal automation' },
+      { label: 'Institutional Capacity & Executive Training', href: '/services#capacity-building', sectionId: '#capacity-building', page: 'services', desc: 'Ministerial crisis simulations & leadership fellowships' },
     ],
     columns: [
       {
-        title: 'Advisory Practice',
+        title: 'Analytical & Advisory Practices',
         links: [
-          { label: 'Macroeconomic Fiscal Modeling', href: '#services', sectionId: '#services' },
-          { label: 'Regulatory & Antitrust Review', href: '#services', sectionId: '#services' },
-          { label: 'Sovereign Debt Restructuring', href: '#services', sectionId: '#services' },
-          { label: 'Trade & Tariff Competitiveness', href: '#services', sectionId: '#services' },
+          { label: 'Macro & Sector Policy Advisory', href: '/services#macro-policy', sectionId: '#macro-policy', page: 'services' },
+          { label: 'MERLA Monitoring & Evaluation', href: '/services#merla', sectionId: '#merla', page: 'services' },
+          { label: 'CAPI & Field Survey Architecture', href: '/services#capi-surveys', sectionId: '#capi-surveys', page: 'services' },
         ],
       },
       {
-        title: 'Evaluation & Data',
+        title: 'Systems & Human Capital',
         links: [
-          { label: 'Real-time MERLA Dashboards', href: '#services', sectionId: '#services' },
-          { label: 'CAPI Field Survey Architecture', href: '#services', sectionId: '#services' },
-          { label: 'Experimental Impact Evaluation', href: '#services', sectionId: '#services' },
-          { label: 'Capacity Transfer Workshops', href: '#services', sectionId: '#services' },
+          { label: 'Digital Transformation & Civic Systems', href: '/services#digital-systems', sectionId: '#digital-systems', page: 'services' },
+          { label: 'Institutional Capacity & Training', href: '/services#capacity-building', sectionId: '#capacity-building', page: 'services' },
+          { label: 'All 5 Practice Deliverables', href: '/services', sectionId: '#services', page: 'services' },
         ],
       },
     ],
     promos: [
       {
-        eyebrow: 'METHODOLOGY',
-        title: 'Integrated MERLA Dashboards for Real-Time Governance',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-        href: '#services',
+        eyebrow: 'PRACTICE 01 • MACRO ADVISORY',
+        title: 'Sovereign Macro-Fiscal Realignment and DSGE Modeling Suites',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+        href: '/services#macro-policy',
       },
       {
-        eyebrow: 'FIELD RESEARCH',
-        title: 'CAPI Socio-Economic Field Data Methodologies in 12 Regions',
+        eyebrow: 'PRACTICE 03 • FIELD CAPI',
+        title: 'High-Frequency CAPI Field Survey Architecture in 12 Regions',
         image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800',
-        href: '#services',
+        href: '/services#capi-surveys',
       },
     ],
   },

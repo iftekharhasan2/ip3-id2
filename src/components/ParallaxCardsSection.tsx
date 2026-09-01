@@ -266,20 +266,20 @@ const ParallaxCard: React.FC<ParallaxCardProps> = ({ card, settings, onShowDetai
         {/* Layer 4: Frame Border (Removed frame border) */}
 
         <div className="card-layer layer-content p-3.5 flex flex-col justify-end pointer-events-none">
-          <div className="bg-[#081220]/95 backdrop-blur-md p-3.5 rounded-xl border border-slate-800 shadow-2xl space-y-1.5 text-slate-100">
+          <div className="bg-[#081220]/95 backdrop-blur-md p-4 rounded-2xl border border-slate-800 shadow-2xl space-y-2 text-slate-100">
             {card.badge && (
-              <span className="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-[#ff7e67]/15 text-[#ff7e67] border border-[#ff7e67]/30">
+              <span className="inline-block px-2.5 py-0.5 rounded text-[13px] font-mono font-bold uppercase tracking-wider bg-[#ff7e67]/15 text-[#ff7e67] border border-[#ff7e67]/30">
                 {card.badge}
               </span>
             )}
-            <h3 className="text-base font-bold tracking-tight text-slate-100 leading-tight">
+            <h3 className="text-[21px] sm:text-[22px] font-bold tracking-tight text-slate-100 leading-tight">
               {card.title}
             </h3>
-            <p className="text-[11px] text-slate-400 leading-snug line-clamp-2 font-normal">
+            <p className="text-[14px] text-slate-300 leading-relaxed line-clamp-2 font-normal">
               {card.description}
             </p>
-            <div className="pt-0.5">
-              <span className="text-xs font-mono font-bold text-[#ff7e67] flex items-center gap-1">
+            <div className="pt-1">
+              <span className="text-[15px] font-mono font-bold text-[#ff7e67] flex items-center gap-1">
                 More Details &gt;
               </span>
             </div>
