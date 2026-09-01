@@ -4,10 +4,9 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
-import { DEFAULT_WEBSITE_DATA, type WebsiteData } from './src/data/defaultContent.ts';
+import { DEFAULT_WEBSITE_DATA, type WebsiteData } from './src/data/defaultContent';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const currentDir = typeof __dirname !== 'undefined' ? __dirname : process.cwd();
 
 const app = express();
 const PORT = 3000;
@@ -474,7 +473,7 @@ async function startServer() {
       try {
         const isAdmin = url === '/admin' || url.startsWith('/admin?') || url.startsWith('/admin/');
         const templateFile = isAdmin ? 'admin.html' : 'index.html';
-        const filePath = path.resolve(__dirname, templateFile);
+        const filePath = path.resolve(currentDir, templateFile);
         let template = fs.readFileSync(filePath, 'utf-8');
         template = await vite.transformIndexHtml(url, template);
         res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
@@ -484,7 +483,7 @@ async function startServer() {
       }
     });
   } else {
-    const distPath = path.resolve(__dirname, 'dist');
+    const distPath = path.resolve(currentDir, 'dist');
     app.use(express.static(distPath));
 
     app.use((req, res) => {
