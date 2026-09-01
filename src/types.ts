@@ -367,6 +367,94 @@ export interface ProjectItemData {
   featured?: boolean;
 }
 
+export interface LayerCaseExample {
+  title: string;
+  summary: string;
+  deliverable: string;
+}
+
+export interface LayerMetric {
+  label: string;
+  value: string;
+}
+
+export interface LayerData {
+  id: string;
+  activeIndex: number;
+  glowColor: string;
+  activeDashColor: string;
+  inactiveDashColor: string;
+  accentColor: string;
+  layerNumber: string;
+  title: string;
+  description: string;
+  capabilities: string[];
+  caseExample: LayerCaseExample;
+  metrics: LayerMetric[];
+}
+
+export interface SystemMetric {
+  label: string;
+  value: string;
+  trend?: 'up' | 'down' | 'stable';
+}
+
+export interface SystemOverlap {
+  targetSystemId: string;
+  targetSystemName: string;
+  overlapTitle: string;
+  synergyDescription: string;
+  compoundRisk: string;
+  jointIntervention: string;
+  sharedMetrics?: string[];
+}
+
+export interface SystemItem {
+  id: string;
+  name: string;
+  shortName: string;
+  row: number;
+  color: string;
+  glowColor: string;
+  bgGlow?: string;
+  dotClass?: string;
+  borderClass?: string;
+  category: string;
+  summary: string;
+  coreMandate: string;
+  keyDrivers: string[];
+  systemicRisks?: string[];
+  interventions?: string[];
+  metrics: SystemMetric[];
+  overlaps: SystemOverlap[];
+}
+
+export interface OrbitRing {
+  id: string;
+  radius: number;
+  dashArray: string;
+  opacity: number;
+  label: string;
+}
+
+export interface ActorNode {
+  id: string;
+  name: string;
+  category: string;
+  ring: 'inner' | 'middle' | 'outer';
+  baseRadius: number;
+  baseAngle: number;
+  speedFactor: number;
+  x: number;
+  y: number;
+  borderColor: string;
+  glowColor: string;
+  accentColor: string;
+  role: string;
+  conveningMechanism: string;
+  deliverables: string[];
+}
+
 export interface MethodologyStep {
   id: string;
   code: string;
@@ -380,4 +468,8 @@ export interface MethodologyStep {
   deliverables: string[];
   metrics: string[];
 }
+
+
+
+
 

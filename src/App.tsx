@@ -7,6 +7,7 @@ import { FocusPage } from './components/FocusPage';
 import { Ip3TrailerSection } from './components/Ip3TrailerSection';
 import { PolicyShowcaseSection } from './components/PolicyShowcaseSection';
 import { FourFrontsSection } from './components/FourFrontsSection';
+import { ConveningSection } from './components/ConveningSection';
 import { Ip3PolicySection } from './components/Ip3PolicySection';
 import { TrustMatrixMarquee } from './components/TrustMatrixMarquee';
 import { TestimonialCard } from './components/TestimonialCard';
@@ -130,6 +131,9 @@ function AppContent() {
 
           {/* Combined Systemic Architecture & Four Fronts Matrix Section */}
           <FourFrontsSection />
+
+          {/* Neutral Convening Ecosystem Orbital Architecture Section */}
+          <ConveningSection />
 
           {/* Trust Matrix Infinite Marquee Carousel */}
           <TrustMatrixMarquee />

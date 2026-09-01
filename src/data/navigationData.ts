@@ -84,10 +84,9 @@ export const primaryNav: PrimaryNavItem[] = [
     sectionId: '#focus-areas',
     page: 'focus',
     links: [
-      { label: 'Climate Action & ESG Strategy', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus', desc: 'Decarbonization audits, circular economy & ESG roadmaps' },
-      { label: 'Education & Human Capacity', href: '/focus#focus-branch-1', sectionId: '#focus-branch-1', page: 'focus', desc: 'Digital learning systems, ADB NSEP & curriculum reform' },
-      { label: 'Institutional Governance & Reform', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus', desc: 'Municipal support, data ecosystems & public infrastructure' },
-      { label: 'Municipal Financing & Capital Markets', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus', desc: 'BMDF green municipal bonds & fiscal autonomy' },
+      { label: 'Climate Action & ESG Strategy', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus', desc: 'Decarbonization audits, circular economy & industrial ESG roadmaps' },
+      { label: 'Educational Innovation & Pedagogy', href: '/focus#focus-branch-1', sectionId: '#focus-branch-1', page: 'focus', desc: 'Digital learning platforms, ADB secondary education & curriculum reform' },
+      { label: 'Data & Digital Governance', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus', desc: 'Future-ready governance, municipal capacity (BMDF) & data ecosystems' },
     ],
     columns: [
       {
@@ -96,14 +95,12 @@ export const primaryNav: PrimaryNavItem[] = [
           { label: 'Decarbonization Pathways', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
           { label: 'Green Bond Issuance & Audits', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
           { label: 'Smart Grid & Clean Energy', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
-          { label: 'Biodiversity & Water Security', href: '/focus#focus-branch-0', sectionId: '#focus-branch-0', page: 'focus' },
         ],
       },
       {
         title: 'Human & Digital Systems',
         links: [
           { label: 'Blended Learning Platforms', href: '/focus#focus-branch-1', sectionId: '#focus-branch-1', page: 'focus' },
-          { label: 'Technical & Vocational Skills', href: '/focus#focus-branch-1', sectionId: '#focus-branch-1', page: 'focus' },
           { label: 'Institutional Diagnostics', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus' },
           { label: 'Public Financial Management', href: '/focus#focus-branch-2', sectionId: '#focus-branch-2', page: 'focus' },
         ],

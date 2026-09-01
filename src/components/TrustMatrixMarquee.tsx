@@ -8,7 +8,7 @@ export const TrustMatrixMarquee: React.FC = () => {
   const speed = trustMatrix.scrollSpeed || 35;
 
   return (
-    <div className="relative w-full overflow-hidden bg-[var(--bg)] py-12 select-none border-t border-b border-[var(--border)] transition-colors duration-250 font-sans">
+    <div className="relative w-full overflow-hidden bg-[var(--bg)] py-12 select-none transition-colors duration-250 font-sans">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto px-4 mb-8 space-y-2">
         <div>

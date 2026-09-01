@@ -35,9 +35,10 @@
 }
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --color-brand-bg: var(--bg);
   --color-brand-coral: var(--coral);
@@ -48,17 +49,58 @@
 }
 
 @layer base {
-  body {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg);
+  *, *::before, *::after {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html, body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background-color: var(--bg) !important;
     color: var(--white);
     transition: background-color 0.25s ease, color 0.25s ease;
   }
   
-  .font-serif, .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
+  .font-serif, .font-display, .font-serif-custom, .font-serif-playfair,
+  .font-serif-newsreader, .font-serif-cormorant, .font-serif-instrument,
+  .font-sans, .font-sans-body, .font-mono {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
+  section,
+  [id$="-section"],
+  [id^="section-"] {
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
   }
 }
+
+.glow-dot-emerald {
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8), 0 0 16px rgba(16, 185, 129, 0.4);
+}
+.glow-dot-blue {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.8), 0 0 16px rgba(59, 130, 246, 0.4);
+}
+.glow-dot-teal {
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.8), 0 0 16px rgba(6, 182, 212, 0.4);
+}
+.glow-dot-sky {
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.8), 0 0 16px rgba(2, 132, 199, 0.4);
+}
+.glow-dot-orange {
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.8), 0 0 16px rgba(249, 115, 22, 0.4);
+}
+.glow-dot-amber {
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.8), 0 0 16px rgba(245, 158, 11, 0.4);
+}
+.glow-dot-mint {
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8), 0 0 16px rgba(16, 185, 129, 0.4);
+}
+.glow-dot-purple {
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.8), 0 0 16px rgba(139, 92, 246, 0.4);
+}
+
 
 /* Light mode specific element mappings */
 .light body {

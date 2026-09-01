@@ -39,64 +39,35 @@ export const FourFrontsSection: React.FC = () => {
   }, [isPaused, fronts.length]);
 
   return (
-    <section id="about" className="relative bg-[#050a12] text-slate-100 py-8 md:py-12 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
-      <div id="reform" className="max-w-7xl mx-auto space-y-6">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 font-serif tracking-tight text-center">
-          {research.sectionTitle}
-        </h1>
+    <>
+      {/* Section 1: Publications & Knowledge Matrix */}
+      <section id="about" className="relative bg-[#050a12] text-slate-100 py-8 md:py-12 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 font-serif tracking-tight text-center">
+            {research.sectionTitle}
+          </h1>
 
-        {/* Combined Unified Research & Operational Engine Card - Full Width Layout */}
-        <div className="w-full bg-[#081220]/90 border border-slate-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-8">
-          {/* Subtle Ambient Accent Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff7e67]/5 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Top Full-Width Section: Strategic Insights & Philosophical Narrative */}
-          <div className="w-full space-y-5 relative z-10">
-            <div>
-              <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
-                STRATEGIC INSIGHTS &amp; INSTITUTIONAL THESIS
-              </span>
-            </div>
-
-            {/* Display Headline across full width */}
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 leading-tight tracking-tight max-w-4xl">
-              {research.headline}
-            </h2>
-
-            {/* Quote Block */}
-            <div className="border-l-2 border-[#ff7e67] pl-4 py-2 bg-[#ff7e67]/5 rounded-r-2xl max-w-4xl">
-              <p 
-                className="text-sm sm:text-base md:text-lg text-slate-100 font-medium leading-relaxed italic text-glow-subtle"
-                style={{ textShadow: '0 0 16px rgba(255, 126, 103, 0.45), 0 0 32px rgba(255, 126, 103, 0.22)' }}
-              >
-                "{research.quote}"
-              </p>
-            </div>
-
-            {/* Body Text */}
-            <p 
-              className="text-xs sm:text-sm md:text-base text-slate-300 font-normal leading-relaxed max-w-4xl text-glow-subtle"
-              style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.35), 0 0 28px rgba(255, 126, 103, 0.18)' }}
-            >
-              {research.bodyText}
-            </p>
-          </div>
-
-          {/* Bottom Full-Width Section: Operational Engine / Four Fronts (Merged & Auto-Changing) */}
+          {/* Publications & Knowledge Matrix Card */}
           <div 
-            className="w-full pt-6 border-t border-slate-800/80 space-y-4 relative z-10"
+            id="publications-section"
+            className="w-full bg-[#081220]/90 border border-slate-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-6"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="flex items-center gap-2">
-              <span className={`w-2.5 h-2.5 rounded-full bg-[#ff7e67] ${isPaused ? '' : 'animate-pulse'}`} />
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-bold">
-                KNOWLEDGE MATRIX // PUBLICATIONS & DISSEMINATION
-              </span>
+            {/* Subtle Ambient Accent Glow */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff7e67]/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="flex flex-wrap items-center justify-between gap-3 relative z-10">
+              <div className="flex items-center gap-2">
+                <span className={`w-2.5 h-2.5 rounded-full bg-[#ff7e67] ${isPaused ? '' : 'animate-pulse'}`} />
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-bold">
+                  PUBLICATIONS &amp; KNOWLEDGE DISSEMINATION
+                </span>
+              </div>
             </div>
 
             {/* Unified Merged Matrix Card */}
-            <div className="bg-[#0a182b]/95 rounded-2xl border border-slate-800 shadow-xl overflow-hidden">
+            <div className="bg-[#0a182b]/95 rounded-2xl border border-slate-800 shadow-xl overflow-hidden relative z-10">
               
               {/* Header Segment: Integrated Pill Switcher & Progress Indicator */}
               <div className="p-2 sm:p-2.5 bg-[#081220] border-b border-slate-800/80">
@@ -151,6 +122,16 @@ export const FourFrontsSection: React.FC = () => {
                       <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
                         {activeFront.desc}
                       </p>
+
+                      <div className="pt-2">
+                        <a
+                          href="#publications"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800/90 hover:bg-[#ff7e67] text-slate-200 hover:text-white border border-slate-700 hover:border-[#ff7e67] text-xs font-mono font-bold tracking-wider uppercase transition-all duration-300 shadow-md group/btn cursor-pointer"
+                        >
+                          <span>Explore More</span>
+                          <span className="text-[#ff7e67] group-hover/btn:text-white transition-colors">→</span>
+                        </a>
+                      </div>
                     </div>
 
                     {/* Right Image Banner */}
@@ -165,14 +146,6 @@ export const FourFrontsSection: React.FC = () => {
                       
                       {/* Gradient vignette */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#050a12]/95 via-[#050a12]/20 to-transparent" />
-
-                      {/* Deliverable Badge Overlay */}
-                      <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-[#050a12] via-[#050a12]/90 to-transparent flex items-center justify-between gap-2">
-                        <span className="font-mono text-xs text-slate-200 truncate">
-                          <span className="text-[#ff7e67] uppercase font-bold mr-1.5">FRONT 0{safeIdx + 1}:</span>
-                          {activeFront.title}
-                        </span>
-                      </div>
                     </div>
 
                   </div>
@@ -181,27 +154,36 @@ export const FourFrontsSection: React.FC = () => {
 
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Unified Embedded Section: Sovereign Reform Parallax Showcase */}
-          <div className="w-full pt-6 border-t border-slate-800/80 space-y-4 relative z-10">
-            <div className="flex flex-wrap items-center justify-between gap-3">
+      {/* Section 2: Publications & Reform Architecture Showcase */}
+      <section id="publications" className="relative bg-[#050a12] text-slate-100 py-8 md:py-12 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 font-serif tracking-tight text-center">
+            Publications
+          </h1>
+
+          <div className="w-full bg-[#081220]/90 border border-slate-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-6">
+            {/* Subtle Ambient Accent Glow */}
+            <div className="absolute top-0 left-0 w-96 h-96 bg-[#2dd4bf]/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="flex flex-wrap items-center justify-between gap-3 relative z-10">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff7e67] animate-pulse" />
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-bold">
-                  INSTITUTIONAL DECK // REFORM ARCHITECTURE SHOWCASE
+                  PUBLICATIONS &amp; REFORM ARTIFACTS SHOWCASE
                 </span>
               </div>
-              <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#081220] text-slate-400 border border-slate-800">
-                3D Interactive Artifacts
-              </span>
             </div>
 
-            <ParallaxCardsSection embedded={true} />
+            <div className="relative z-10">
+              <ParallaxCardsSection embedded={true} />
+            </div>
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

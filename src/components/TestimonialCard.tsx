@@ -25,7 +25,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
   };
 
   return (
-    <section id="testimonials" className="w-full py-24 sm:py-28 lg:py-32 bg-[var(--bg)] text-[var(--white)] overflow-hidden border-t border-[var(--border)] relative transition-colors duration-250">
+    <section id="testimonials" className="w-full py-24 sm:py-28 lg:py-32 bg-[var(--bg)] text-[var(--white)] overflow-hidden relative transition-colors duration-250">
       {/* Background glow effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-[#ff7e67]/5 blur-[120px] rounded-full pointer-events-none" />
 

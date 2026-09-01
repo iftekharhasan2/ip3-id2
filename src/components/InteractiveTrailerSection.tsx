@@ -369,7 +369,7 @@ export const InteractiveTrailerSection: React.FC = () => {
   return (
     <section 
       id="trailer" 
-      className="w-full py-16 sm:py-20 lg:py-24 bg-[#050a12] text-slate-100 relative overflow-hidden border-t border-b border-slate-800"
+      className="w-full py-16 sm:py-20 lg:py-24 bg-[#050a12] text-slate-100 relative overflow-hidden"
     >
       {/* Background Ambience & Fine Grid */}
       <div 

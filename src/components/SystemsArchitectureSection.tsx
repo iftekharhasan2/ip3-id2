@@ -4,6 +4,8 @@ import { ArrowUpRight, MessageSquare } from 'lucide-react';
 import { OrbitalSystem } from './OrbitalSystem';
 import { NodeInspectorModal } from './NodeInspectorModal';
 import { ConsultationModal } from './ConsultationModal';
+import { PolySolutionsSection } from './PolySolutionsSection';
+import { EightSystemsSection } from './EightSystemsSection';
 import { SystemNodeId } from '../data/systemsData';
 
 export const SystemsArchitectureSection: React.FC = () => {
@@ -17,7 +19,7 @@ export const SystemsArchitectureSection: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#050a12] text-slate-100 selection:bg-[#ff7e67]/30 selection:text-[#ff9d8c] border-t border-slate-800/80 overflow-hidden">
+    <div className="relative w-full bg-[#050a12] text-slate-100 selection:bg-[#ff7e67]/30 selection:text-[#ff9d8c] overflow-hidden">
       
       {/* Background Lighting Gradients */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -117,6 +119,12 @@ export const SystemsArchitectureSection: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Poly-Solutions 3-Tier Layer Architecture & Deep Dive Engine */}
+      <PolySolutionsSection />
+
+      {/* Eight Systems. One Overlapping Reality. */}
+      <EightSystemsSection />
 
       {/* Node Inspector Modal */}
       <NodeInspectorModal

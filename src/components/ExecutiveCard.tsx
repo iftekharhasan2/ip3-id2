@@ -79,10 +79,6 @@ export const ExecutiveCard: React.FC<ExecutiveCardProps> = ({
               <span className="tracking-widest uppercase text-xs font-mono font-bold text-[#ff7e67]">
                 Institutional Executive Briefing
               </span>
-              <span className="text-slate-700 hidden sm:inline">•</span>
-              <span className="text-slate-200 font-mono hidden sm:inline">
-                Sovereign Economics & Practice
-              </span>
             </div>
             
             {/* Direct Contact Links */}

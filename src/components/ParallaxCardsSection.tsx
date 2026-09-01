@@ -383,6 +383,15 @@ interface ParallaxCardsSectionProps {
   embedded?: boolean;
 }
 
+const BADGE_FILTERS: { label: string; value: FilterBadge }[] = [
+  { label: 'All Artifacts', value: 'All' },
+  { label: 'Legendary', value: 'Legendary' },
+  { label: 'Mythic', value: 'Mythic' },
+  { label: 'Rare', value: 'Rare' },
+  { label: 'Exotic', value: 'Exotic' },
+  { label: 'Special', value: 'Special' },
+];
+
 export const ParallaxCardsSection: React.FC<ParallaxCardsSectionProps> = ({ embedded = false }) => {
   const { data } = useCMS();
   const cards = (data.parallaxCards && data.parallaxCards.length > 0 ? data.parallaxCards : ALL_CARDS) as CardData[];
@@ -429,7 +438,62 @@ export const ParallaxCardsSection: React.FC<ParallaxCardsSectionProps> = ({ embe
   }, [filteredCards, currentPage, cardsPerPage]);
 
   return (
-    <div className={`w-full ${embedded ? 'pt-0' : 'max-w-7xl mx-auto pt-2'}`}>
+    <div className={`w-full ${embedded ? 'pt-0' : 'max-w-7xl mx-auto pt-2'} space-y-5`}>
+      {/* Content Filter & Search Toolbar */}
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-3 sm:p-4 bg-[#050a12]/80 rounded-2xl border border-slate-800 shadow-lg">
+        {/* Category Badge Filter Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <SlidersHorizontal className="w-3.5 h-3.5 text-[#ff7e67] mr-1 hidden sm:inline-block shrink-0" />
+            {BADGE_FILTERS.map((filter) => {
+              const isActive = activeCategory === filter.value;
+              const count = filter.value === 'All'
+                ? cards.length
+                : cards.filter(c => c.badge?.toLowerCase() === filter.value.toLowerCase()).length;
+
+              return (
+                <button
+                  key={filter.value}
+                  onClick={() => setActiveCategory(filter.value)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                    isActive
+                      ? 'bg-[#ff7e67] text-[#050a12] font-bold shadow-md shadow-[#ff7e67]/30 scale-[1.02]'
+                      : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-slate-700'
+                  }`}
+                >
+                  <span>{filter.label}</span>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                    isActive ? 'bg-[#050a12]/30 text-[#050a12]' : 'bg-slate-800 text-slate-400'
+                  }`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Search Input Box */}
+        <div className="relative min-w-[200px] sm:min-w-[240px]">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search publications..."
+            className="w-full pl-8 pr-8 py-1.5 bg-slate-900/90 border border-slate-800 focus:border-[#ff7e67] rounded-xl text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none transition-colors"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
+      </div>
+
       {/* Matrix Grid of Parallax Cards */}
       {filteredCards.length === 0 ? (
         <div className="py-12 text-center space-y-3">

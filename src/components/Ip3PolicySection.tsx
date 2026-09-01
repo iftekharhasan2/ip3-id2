@@ -4,7 +4,7 @@ import {
   Leaf, GraduationCap, ShieldCheck, Play, ArrowRight, CheckCircle,
   Sparkles, SunMedium, Calculator, Activity, FileSpreadsheet, CheckCircle2,
   FileCheck, ExternalLink, Filter, Building, Send, Network, GitBranch,
-  ChevronRight, ChevronLeft, RotateCcw
+  ChevronRight, ChevronLeft, RotateCcw, Search, SlidersHorizontal
 } from 'lucide-react';
 import { useCMS } from '../context/CMSContext';
 
@@ -835,26 +835,38 @@ const ProjectsSection: React.FC = () => {
   const { data } = useCMS();
   const projectList = (data.projects && data.projects.length > 0 ? data.projects : PROJECTS) as ProjectItem[];
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const projectsPerPage = 6;
 
-  // Reset pagination when category or project list changes
+  // Reset pagination when category, search, or project list changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, projectList.length]);
+  }, [selectedCategory, searchQuery, projectList.length]);
 
   const categories = [
-    { id: 'all', label: 'All Portfolio Engagements' },
+    { id: 'all', label: 'All Engagements' },
     { id: 'education', label: 'Education Reform' },
     { id: 'climate', label: 'Climate Action & ESG' },
     { id: 'governance', label: 'Digital Governance' },
     { id: 'feasibility', label: 'Firm Surveys' },
   ];
 
-  const filteredProjects = selectedCategory === 'all'
-    ? projectList
-    : projectList.filter(p => p.category === selectedCategory);
+  const filteredProjects = projectList.filter((p) => {
+    const matchesCategory = selectedCategory === 'all' || p.category === selectedCategory;
+    const query = searchQuery.toLowerCase().trim();
+    if (!query) return matchesCategory;
+
+    const matchesSearch =
+      p.title.toLowerCase().includes(query) ||
+      p.description.toLowerCase().includes(query) ||
+      p.partner.toLowerCase().includes(query) ||
+      p.location.toLowerCase().includes(query) ||
+      (p.tags && p.tags.some(t => t.toLowerCase().includes(query)));
+
+    return matchesCategory && matchesSearch;
+  });
 
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
@@ -865,10 +877,10 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section id="projects" className="py-24 bg-[#081220] relative border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+        <div className="text-center max-w-3xl mx-auto space-y-4">
           <div>
             <span className="font-mono text-[11px] sm:text-xs font-semibold tracking-[0.22em] text-[#ff7e67] uppercase">
               PROVEN ACTION RESEARCH PORTFOLIO
@@ -883,81 +895,134 @@ const ProjectsSection: React.FC = () => {
           >
             Through a diverse portfolio of engagements with global development partners and national ministries, IP3 Experts have built a reputation for meaningful policy outcomes.
           </p>
+        </div>
 
-          {/* Category Filter Pills */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-2.5">
-            {categories.map((cat) => (
+        {/* Content Filter & Search Toolbar */}
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-3 sm:p-4 bg-[#050a12]/90 rounded-2xl border border-slate-800 shadow-xl">
+          {/* Category Filter Buttons */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+            <div className="flex items-center gap-1.5 shrink-0">
+              <SlidersHorizontal className="w-3.5 h-3.5 text-[#ff7e67] mr-1 hidden sm:inline-block shrink-0" />
+              {categories.map((cat) => {
+                const isActive = selectedCategory === cat.id;
+                const count = cat.id === 'all'
+                  ? projectList.length
+                  : projectList.filter(p => p.category === cat.id).length;
+
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                      isActive
+                        ? 'bg-[#ff7e67] text-[#050a12] font-bold shadow-md shadow-[#ff7e67]/30 scale-[1.02]'
+                        : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 hover:border-slate-700'
+                    }`}
+                  >
+                    <span>{cat.label}</span>
+                    <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
+                      isActive ? 'bg-[#050a12]/30 text-[#050a12]' : 'bg-slate-800 text-slate-400'
+                    }`}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Search Input Box */}
+          <div className="relative min-w-[200px] sm:min-w-[240px]">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search projects..."
+              className="w-full pl-8 pr-8 py-1.5 bg-slate-900/90 border border-slate-800 focus:border-[#ff7e67] rounded-xl text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none transition-colors"
+            />
+            {searchQuery && (
               <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4.5 py-2.5 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
-                  selectedCategory === cat.id
-                    ? 'bg-[#ff7e67] text-white font-extrabold shadow-md shadow-[#ff7e67]/20 scale-105'
-                    : 'bg-[#050a12] text-slate-400 hover:text-slate-100 border border-slate-800 hover:bg-slate-800/50'
-                }`}
+                onClick={() => setSearchQuery('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
               >
-                {cat.label}
+                <X className="w-3.5 h-3.5" />
               </button>
-            ))}
+            )}
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedProjects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-[#050a12] rounded-3xl border border-slate-800 flex flex-col overflow-hidden group shadow-lg hover:border-[#ff7e67]/50 transition-all duration-300"
+        {/* Projects Grid or Empty State */}
+        {filteredProjects.length === 0 ? (
+          <div className="py-16 text-center space-y-3 bg-[#050a12] rounded-3xl border border-slate-800 p-8">
+            <p className="text-slate-400 text-sm">No engagements match the current filter or search criteria.</p>
+            <button
+              onClick={() => {
+                setSelectedCategory('all');
+                setSearchQuery('');
+              }}
+              className="px-4 py-2 bg-[#ff7e67] hover:bg-[#e06a54] text-white font-bold text-xs rounded-xl transition-colors cursor-pointer"
             >
-              {/* Image Banner */}
-              <div className="relative h-48 overflow-hidden bg-[#081220]">
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050a12] via-transparent to-transparent opacity-80" />
-                
-                {/* Partner Badge */}
-                <div className="absolute top-3 left-3 bg-[#081220]/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[10px] font-bold text-[#ff7e67] border border-[#ff7e67]/30 flex items-center gap-1.5 shadow-sm">
-                  <Building className="w-3 h-3 text-[#ff7e67]" />
-                  <span>{project.partnerLogoText || project.partner}</span>
-                </div>
-
-                <div className="absolute bottom-3 right-3 text-[10px] font-semibold text-slate-400 bg-[#081220]/90 px-2 py-0.5 rounded-md border border-slate-800 shadow-xs">
-                  {project.year}
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#ff7e67]">
-                    {project.categoryLabel}
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayedProjects.map((project) => (
+              <div
+                key={project.id}
+                className="bg-[#050a12] rounded-3xl border border-slate-800 flex flex-col overflow-hidden group shadow-lg hover:border-[#ff7e67]/50 transition-all duration-300"
+              >
+                {/* Image Banner */}
+                <div className="relative h-48 overflow-hidden bg-[#081220]">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050a12] via-transparent to-transparent opacity-80" />
+                  
+                  {/* Partner Badge */}
+                  <div className="absolute top-3 left-3 bg-[#081220]/95 backdrop-blur-md px-2.5 py-1 rounded-xl text-[10px] font-bold text-[#ff7e67] border border-[#ff7e67]/30 flex items-center gap-1.5 shadow-sm">
+                    <Building className="w-3 h-3 text-[#ff7e67]" />
+                    <span>{project.partnerLogoText || project.partner}</span>
                   </div>
-                  <h3 className="text-[26px] font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
-                    {project.title}
-                  </h3>
-                  <p 
-                    className="text-xs text-slate-300 line-clamp-3 leading-relaxed text-glow-subtle"
-                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.35), 0 0 24px rgba(255, 126, 103, 0.18)' }}
-                  >
-                    {project.description}
-                  </p>
+
+                  <div className="absolute bottom-3 right-3 text-[10px] font-semibold text-slate-400 bg-[#081220]/90 px-2 py-0.5 rounded-md border border-slate-800 shadow-xs">
+                    {project.year}
+                  </div>
                 </div>
 
-                {/* Scope Button */}
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="w-full mt-2 py-2.5 px-3 rounded-xl bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>View Project Scope & Details</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </button>
+                {/* Card Body */}
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-[#ff7e67]">
+                      {project.categoryLabel}
+                    </div>
+                    <h3 className="text-[26px] font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
+                      {project.title}
+                    </h3>
+                    <p 
+                      className="text-xs text-slate-300 line-clamp-3 leading-relaxed text-glow-subtle"
+                      style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.35), 0 0 24px rgba(255, 126, 103, 0.18)' }}
+                    >
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Scope Button */}
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="w-full mt-2 py-2.5 px-3 rounded-xl bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>View Project Scope & Details</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* See More Projects / Pagination Bar */}
         {totalPages > 1 && (
