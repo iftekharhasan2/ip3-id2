@@ -1,5 +1,5 @@
 import { BookOpen, ArrowRight, Sparkles, RefreshCw, Scissors, Building, Utensils, Scale } from 'lucide-react';
-import { CIRCULAR_OFFERINGS } from '../data/siteData';
+import { CIRCULAR_OFFERINGS } from '../../data/climateData';
 
 interface CircularEconomistSectionProps {
   onOpenContact: () => void;

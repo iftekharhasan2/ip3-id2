@@ -63,7 +63,7 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
     }
   };
 
-  const renderPill = (system: SystemItem) => {
+  const renderPill = (system: SystemItem, index: number) => {
     const isSelected = selectedSystemId === system.id;
     const isHovered = hoveredSystemId === system.id;
     const glowClass = getDotGlowClass(system.id);
@@ -76,52 +76,75 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
         onClick={() => onSelectSystem(system)}
         onMouseEnter={() => setHoveredSystemId(system.id)}
         onMouseLeave={() => setHoveredSystemId(null)}
-        className={`group relative w-full h-[52px] flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-full text-[13.5px] sm:text-[14.5px] leading-tight font-medium font-sans-body transition-all duration-200 cursor-pointer select-none outline-none text-center ${
+        className={`group relative w-full flex flex-col justify-between text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 cursor-pointer select-none outline-none border ${
           isSelected
-            ? 'bg-[#0b1728] border-[#ff7e67]/60 text-white shadow-lg ring-1 ring-[#ff7e67]/30'
+            ? 'bg-[#0f1d33] border-[#ff7e67] shadow-xl ring-1 ring-[#ff7e67]/40 text-white'
             : isHovered
-            ? 'bg-[#0b1728] border-[#ff7e67]/40 text-white scale-[1.02] shadow-md'
-            : 'bg-[#081220]/90 hover:bg-[#0b1728] border-slate-800 hover:border-slate-700 text-slate-200 hover:text-white'
-        } border`}
+            ? 'bg-[#0d1a2d] border-slate-700 text-white shadow-lg -translate-y-0.5'
+            : 'bg-[#081324]/85 hover:bg-[#0c182b] border-slate-800/90 text-slate-200 hover:text-white'
+        }`}
         style={{
           boxShadow: isSelected
-            ? `0 0 24px ${system.glowColor.replace('0.7', '0.25')}, inset 0 1px 1px rgba(255,255,255,0.1)`
+            ? `0 0 28px ${system.glowColor.replace('0.7', '0.22')}, inset 0 1px 1px rgba(255,255,255,0.12)`
             : isHovered
-            ? `0 0 20px ${system.glowColor.replace('0.7', '0.35')}, 0 4px 12px rgba(5,10,18,0.7)`
-            : 'none',
+            ? `0 10px 24px -6px rgba(5,10,18,0.7), 0 0 18px ${system.glowColor.replace('0.7', '0.2')}`
+            : '0 2px 8px rgba(0,0,0,0.2)',
         }}
       >
-        {/* Glow dot */}
-        <span className="relative flex h-2.5 w-2.5 items-center justify-center shrink-0 self-center">
-          {/* Subtle pulsating halo if selected or hovered */}
-          {(isSelected || isHovered) && (
-            <span
-              className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-              style={{
-                backgroundColor: system.color,
-                animationDuration: isHovered ? '1.5s' : '2.5s',
-              }}
-            />
-          )}
-          <span
-            className={`relative inline-flex rounded-full h-2 w-2 ${glowClass}`}
-            style={{
-              backgroundColor: system.color,
-              filter: `drop-shadow(0 0 ${4 * glowIntensity}px ${system.color})`,
-            }}
-          />
-        </span>
+        {/* Card Header: Category & Glowing Indicator */}
+        <div className="flex items-center justify-between w-full mb-3">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center shrink-0">
+              {(isSelected || isHovered) && (
+                <span
+                  className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                  style={{
+                    backgroundColor: system.color,
+                    animationDuration: isHovered ? '1.5s' : '2.5s',
+                  }}
+                />
+              )}
+              <span
+                className={`relative inline-flex rounded-full h-2 w-2 ${glowClass}`}
+                style={{
+                  backgroundColor: system.color,
+                  filter: `drop-shadow(0 0 ${4 * glowIntensity}px ${system.color})`,
+                }}
+              />
+            </span>
+            <span className="font-mono text-[10px] font-bold tracking-wider text-slate-400 uppercase truncate">
+              0{index + 1} • {system.category}
+            </span>
+          </div>
 
-        {/* Text */}
-        <span className="truncate tracking-[-0.01em]">
+          <div className="shrink-0 ml-2">
+            {isSelected ? (
+              <span className="text-[9px] font-mono font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#ff7e67]/20 text-[#ff7e67] border border-[#ff7e67]/30">
+                ACTIVE
+              </span>
+            ) : (
+              <span className="text-[9px] font-mono text-slate-500 uppercase group-hover:text-slate-300 transition-colors">
+                EXPLORE
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Card Title */}
+        <h4 className="font-sans text-sm sm:text-base font-bold text-slate-100 group-hover:text-white leading-snug tracking-tight">
           {system.name}
-        </span>
+        </h4>
+
+        {/* Card Summary Description */}
+        <p className="text-[11.5px] text-slate-400 font-light leading-relaxed mt-2 line-clamp-2 group-hover:text-slate-300">
+          {system.summary}
+        </p>
       </button>
     );
   };
 
   return (
-    <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pt-4 sm:pt-8 md:pt-10 pb-12 sm:pb-16 select-text transition-all duration-300">
+    <div className="relative w-full max-w-7xl mx-auto select-text transition-all duration-300">
       {/* Background ambient lighting subtle glow */}
       <div
         className="pointer-events-none absolute -left-20 top-24 w-72 h-72 rounded-full opacity-20 blur-3xl"
@@ -220,6 +243,6 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
           )}
         </AnimatePresence>
       </div>
-    </section>
+    </div>
   );
 };

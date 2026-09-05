@@ -315,7 +315,7 @@ export const RecreationSection: React.FC<RecreationSectionProps> = ({ steps, onS
   return (
     <div
       id="translation-section"
-      className="relative w-full text-slate-100 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 overflow-hidden select-none"
+      className="relative w-full text-slate-100 pt-12 sm:pt-16 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8 overflow-hidden select-none bg-[#050a12]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Main Editorial Headline */}
@@ -338,8 +338,7 @@ export const RecreationSection: React.FC<RecreationSectionProps> = ({ steps, onS
           {/* Body description */}
           <p
             id="main-editorial-paragraph"
-            className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-300 font-light max-w-4xl tracking-normal font-sans text-glow-subtle"
-            style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.4), 0 0 28px rgba(255, 126, 103, 0.2)' }}
+            className="text-sm sm:text-base md:text-lg leading-relaxed text-slate-300 font-normal max-w-4xl tracking-normal font-sans"
           >
             IP3 turns analysis into action. We convert evidence, policy intelligence, and institutional
             diagnostics into implementation architecture — the operating models, digital platforms,
@@ -351,8 +350,8 @@ export const RecreationSection: React.FC<RecreationSectionProps> = ({ steps, onS
         {/* Process Flow Diagram */}
         <div className="mt-14 sm:mt-18 md:mt-24 w-full relative">
           <div
-            className="w-full overflow-x-auto pb-6 pt-[23px] h-[150px] scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-800 relative z-10"
-            style={{ height: '150px', paddingTop: '23px' }}
+            className="w-full overflow-x-auto pb-6 pt-[23px] h-[150px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden no-scrollbar relative z-10"
+            style={{ height: '150px', paddingTop: '23px', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <div className="min-w-[780px] lg:min-w-0 w-full flex items-start justify-between relative px-2">
               {steps.map((step, idx) => {

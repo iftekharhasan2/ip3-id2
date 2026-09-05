@@ -1,6 +1,6 @@
 {
-  "name": "IP3 Consulting Limited",
-  "description": "IP3 Consulting Limited works with governments, multilateral institutions, and enterprise leaders across empirical research, policy design, climate transition, and public delivery.",
+  "name": "IP3 Agriscience & Precision Research Farm",
+  "description": "IP3 Agriscience & Precision Research Farm operates 1,200 hectares of living field testbeds, computational phenomics glasshouses, and deep soil metagenomics laboratories.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

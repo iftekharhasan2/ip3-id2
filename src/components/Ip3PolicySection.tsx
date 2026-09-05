@@ -186,10 +186,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                   <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     Climate Action & ESG
                   </h3>
-                  <p 
-                    className="text-xs text-slate-300 leading-relaxed text-glow-subtle"
-                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
-                  >
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     Green economics, firm-level tech adoption, circular economy, industrial decarbonization, and ESG compliance.
                   </p>
                 </div>
@@ -251,10 +248,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                   <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     Educational Innovation
                   </h3>
-                  <p 
-                    className="text-xs text-slate-300 leading-relaxed text-glow-subtle"
-                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
-                  >
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     Human developmental science, datafication of learning, blended learning rails, and TVET modernizations.
                   </p>
                 </div>
@@ -316,10 +310,7 @@ const HeroTreeSection: React.FC<HeroTreeProps> = ({ onExploreFocus, onOpenContac
                   <h3 className="text-lg font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                     Data & Digital Governance
                   </h3>
-                  <p 
-                    className="text-xs text-slate-300 leading-relaxed text-glow-subtle"
-                    style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
-                  >
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     Future-ready governance, municipal development (BMDF), sovereign data trust, and regulatory architecture.
                   </p>
                 </div>
@@ -702,10 +693,7 @@ const ServicesSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenContac
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
             Our Services &amp; Advisory Solutions
           </h2>
-          <p 
-            className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto text-glow-subtle"
-            style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.35), 0 0 28px rgba(255, 126, 103, 0.18)' }}
-          >
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
             From rigorous economic feasibility and MERLA design to full-scale survey execution and climate action strategy, we empower public and private institutions.
           </p>
         </div>
@@ -794,10 +782,7 @@ const ServicesSection: React.FC<{ onOpenContact: () => void }> = ({ onOpenContac
                 </h3>
               </div>
 
-              <p 
-                className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal text-glow-subtle"
-                style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.4), 0 0 24px rgba(255, 126, 103, 0.2)' }}
-              >
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                 {activeService.description}
               </p>
             </div>
@@ -876,8 +861,11 @@ const ProjectsSection: React.FC = () => {
   );
 
   return (
-    <section id="projects" className="py-24 bg-[#081220] relative border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <section id="projects" className="pt-4 sm:pt-6 pb-24 bg-[#050a12] relative border-t-0 overflow-hidden">
+      {/* Background ambient lighting matching translation framework */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#ff7e67]/5 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -889,16 +877,13 @@ const ProjectsSection: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-100 tracking-tight">
             Recent Engagements &amp; Impact Projects
           </h2>
-          <p 
-            className="text-sm sm:text-base text-slate-300 leading-relaxed text-glow-subtle"
-            style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.35), 0 0 28px rgba(255, 126, 103, 0.18)' }}
-          >
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
             Through a diverse portfolio of engagements with global development partners and national ministries, IP3 Experts have built a reputation for meaningful policy outcomes.
           </p>
         </div>
 
         {/* Content Filter & Search Toolbar */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-3 sm:p-4 bg-[#050a12]/90 rounded-2xl border border-slate-800 shadow-xl">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-3 sm:p-4 bg-[#081220]/90 rounded-2xl border border-slate-800/80 shadow-xl">
           {/* Category Filter Buttons */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
             <div className="flex items-center gap-1.5 shrink-0">
@@ -954,7 +939,7 @@ const ProjectsSection: React.FC = () => {
 
         {/* Projects Grid or Empty State */}
         {filteredProjects.length === 0 ? (
-          <div className="py-16 text-center space-y-3 bg-[#050a12] rounded-3xl border border-slate-800 p-8">
+          <div className="py-16 text-center space-y-3 bg-[#081220]/80 rounded-3xl border border-slate-800/80 p-8">
             <p className="text-slate-400 text-sm">No engagements match the current filter or search criteria.</p>
             <button
               onClick={() => {
@@ -971,7 +956,7 @@ const ProjectsSection: React.FC = () => {
             {displayedProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-[#050a12] rounded-3xl border border-slate-800 flex flex-col overflow-hidden group shadow-lg hover:border-[#ff7e67]/50 transition-all duration-300"
+                className="bg-[#081220]/75 hover:bg-[#0b1626] rounded-3xl border border-slate-800/80 flex flex-col overflow-hidden group shadow-lg hover:border-[#ff7e67]/50 transition-all duration-300"
               >
                 {/* Image Banner */}
                 <div className="relative h-48 overflow-hidden bg-[#081220]">
@@ -1002,10 +987,7 @@ const ProjectsSection: React.FC = () => {
                     <h3 className="text-[26px] font-bold text-slate-100 group-hover:text-[#ff7e67] transition-colors leading-snug">
                       {project.title}
                     </h3>
-                    <p 
-                      className="text-xs text-slate-300 line-clamp-3 leading-relaxed text-glow-subtle"
-                      style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.35), 0 0 24px rgba(255, 126, 103, 0.18)' }}
-                    >
+                    <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -1026,7 +1008,7 @@ const ProjectsSection: React.FC = () => {
 
         {/* See More Projects / Pagination Bar */}
         {totalPages > 1 && (
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 bg-[#050a12] rounded-3xl border border-slate-800 shadow-sm">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 sm:p-5 bg-[#081220]/80 rounded-3xl border border-slate-800/80 shadow-sm">
             <div className="text-xs text-slate-400 font-medium">
               Showing projects <span className="font-bold text-slate-100">{(currentPage - 1) * projectsPerPage + 1}</span> - <span className="font-bold text-slate-100">{Math.min(currentPage * projectsPerPage, filteredProjects.length)}</span> of <span className="font-bold text-slate-100">{filteredProjects.length}</span> (Page {currentPage} of {totalPages})
             </div>

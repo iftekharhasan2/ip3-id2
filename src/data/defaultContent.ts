@@ -210,7 +210,7 @@ export const defaultThemeConfig: SiteThemeConfig = {
 };
 
 export const defaultResearchSection: ResearchSectionData = {
-  sectionTitle: "Institutional Deck",
+  sectionTitle: "Thinking that ships.",
   headline: "Turning Institutional Pressure Into Actionable Architecture",
   highlightWord: "Pressure",
   quote: "When overlapping systems are understood, pressure stops being only a threat. It becomes material for design.",

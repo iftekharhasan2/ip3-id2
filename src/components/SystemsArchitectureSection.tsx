@@ -5,13 +5,99 @@ import { OrbitalSystem } from './OrbitalSystem';
 import { NodeInspectorModal } from './NodeInspectorModal';
 import { ConsultationModal } from './ConsultationModal';
 import { PolySolutionsSection } from './PolySolutionsSection';
-import { EightSystemsSection } from './EightSystemsSection';
 import { SystemNodeId } from '../data/systemsData';
 
 export const SystemsArchitectureSection: React.FC = () => {
-  const [selectedNodeId, setSelectedNodeId] = useState<SystemNodeId | null>(null);
+  const [selectedStoryNodeId, setSelectedStoryNodeId] = useState<SystemNodeId | null>(null);
+  const [inspectedNodeId, setInspectedNodeId] = useState<SystemNodeId | null>(null);
+  const [activeStoryThemeIndex, setActiveStoryThemeIndex] = useState<number>(0);
+  const [isStoryOpen, setIsStoryOpen] = useState<boolean>(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState<boolean>(false);
   const [consultationDomain, setConsultationDomain] = useState<SystemNodeId | null>(null);
+
+  const themeNodeMap: Record<number, SystemNodeId> = {
+    0: 'institutions',
+    1: 'policy',
+    2: 'technology',
+    3: 'evidence',
+  };
+
+  const handleSelectNode = (nodeId: SystemNodeId) => {
+    if (nodeId === 'institutions') {
+      if (isStoryOpen && selectedStoryNodeId === 'institutions') {
+        setIsStoryOpen(false);
+        setSelectedStoryNodeId(null);
+        return;
+      }
+      setSelectedStoryNodeId('institutions');
+      setActiveStoryThemeIndex(0);
+      setIsStoryOpen(true);
+      setTimeout(() => {
+        const el = document.getElementById('polysolutions-master-card') || document.getElementById('polysolutions-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+    if (nodeId === 'policy') {
+      if (isStoryOpen && selectedStoryNodeId === 'policy') {
+        setIsStoryOpen(false);
+        setSelectedStoryNodeId(null);
+        return;
+      }
+      setSelectedStoryNodeId('policy');
+      setActiveStoryThemeIndex(1);
+      setIsStoryOpen(true);
+      setTimeout(() => {
+        const el = document.getElementById('polysolutions-master-card') || document.getElementById('polysolutions-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+    if (nodeId === 'technology') {
+      if (isStoryOpen && selectedStoryNodeId === 'technology') {
+        setIsStoryOpen(false);
+        setSelectedStoryNodeId(null);
+        return;
+      }
+      setSelectedStoryNodeId('technology');
+      setActiveStoryThemeIndex(2);
+      setIsStoryOpen(true);
+      setTimeout(() => {
+        const el = document.getElementById('polysolutions-master-card') || document.getElementById('polysolutions-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+    if (nodeId === 'evidence') {
+      if (isStoryOpen && selectedStoryNodeId === 'evidence') {
+        setIsStoryOpen(false);
+        setSelectedStoryNodeId(null);
+        return;
+      }
+      setSelectedStoryNodeId('evidence');
+      setActiveStoryThemeIndex(3);
+      setIsStoryOpen(true);
+      setTimeout(() => {
+        const el = document.getElementById('polysolutions-master-card') || document.getElementById('polysolutions-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+    setInspectedNodeId(nodeId);
+  };
+
+  const handleThemeChange = (index: number) => {
+    setActiveStoryThemeIndex(index);
+    setIsStoryOpen(true);
+    if (themeNodeMap[index]) {
+      setSelectedStoryNodeId(themeNodeMap[index]);
+    }
+  };
+
+  const handleCloseStory = () => {
+    setIsStoryOpen(false);
+    setSelectedStoryNodeId(null);
+  };
 
   const handleOpenConsultation = (domain?: SystemNodeId) => {
     setConsultationDomain(domain || 'core');
@@ -55,10 +141,10 @@ export const SystemsArchitectureSection: React.FC = () => {
               className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] font-bold text-white tracking-tight leading-[1.04]"
             >
               Built for the{' '}
-              <span className="block italic font-normal bg-clip-text text-transparent bg-gradient-to-r from-[#ff7e67] to-[#ffa190] pr-2">
+              <span className="block italic font-normal text-[#ff7e67] pr-2">
                 complexity
               </span>
-              <span className="block italic font-normal bg-clip-text text-transparent bg-gradient-to-r from-[#ff7e67] to-[#ffa190]">
+              <span className="block italic font-normal text-[#ff7e67]">
                 of now.
               </span>
             </motion.h2>
@@ -68,8 +154,7 @@ export const SystemsArchitectureSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-xl pt-1 font-light text-glow-subtle"
-              style={{ textShadow: '0 0 16px rgba(255, 126, 103, 0.45), 0 0 32px rgba(255, 126, 103, 0.22)' }}
+              className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl pt-1 font-normal"
             >
               IP3 Consulting Limited translates policy intelligence, data, and digital
               transformation into implementation architecture for resilient institutions,
@@ -86,7 +171,15 @@ export const SystemsArchitectureSection: React.FC = () => {
             >
               <button
                 id="hero-explore-systems-btn"
-                onClick={() => setSelectedNodeId('core')}
+                onClick={() => {
+                  setActiveStoryThemeIndex(0);
+                  setSelectedStoryNodeId('institutions');
+                  setIsStoryOpen(true);
+                  setTimeout(() => {
+                    const el = document.getElementById('polysolutions-master-card') || document.getElementById('polysolutions-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
                 className="group relative inline-flex items-center gap-2.5 bg-[#ff7e67] hover:bg-[#ff8f7b] active:bg-[#f26249] text-[#070d18] font-mono font-bold text-xs sm:text-[13px] tracking-wider uppercase px-7 py-3.5 rounded-full transition-all duration-200 shadow-[0_4px_24px_rgba(255,126,103,0.35)] hover:shadow-[0_6px_30px_rgba(255,126,103,0.5)] cursor-pointer"
               >
                 <span>EXPLORE OUR SYSTEMS</span>
@@ -113,24 +206,26 @@ export const SystemsArchitectureSection: React.FC = () => {
             className="lg:col-span-5 flex items-center justify-center relative"
           >
             <OrbitalSystem
-              onSelectNode={(nodeId) => setSelectedNodeId(nodeId)}
-              selectedNodeId={selectedNodeId}
+              onSelectNode={handleSelectNode}
+              selectedNodeId={selectedStoryNodeId}
             />
           </motion.div>
         </div>
       </section>
 
-      {/* Poly-Solutions 3-Tier Layer Architecture & Deep Dive Engine */}
-      <PolySolutionsSection />
-
-      {/* Eight Systems. One Overlapping Reality. */}
-      <EightSystemsSection />
+      {/* Unified Poly-Solutions Architecture & Eight Systems Master Section */}
+      <PolySolutionsSection
+        isOpen={isStoryOpen}
+        onClose={handleCloseStory}
+        activeThemeIndex={activeStoryThemeIndex}
+        onThemeChange={handleThemeChange}
+      />
 
       {/* Node Inspector Modal */}
       <NodeInspectorModal
-        nodeId={selectedNodeId}
-        onClose={() => setSelectedNodeId(null)}
-        onSelectAnotherNode={(nodeId) => setSelectedNodeId(nodeId)}
+        nodeId={inspectedNodeId}
+        onClose={() => setInspectedNodeId(null)}
+        onSelectAnotherNode={(nodeId) => setInspectedNodeId(nodeId)}
         onConsultDomain={(nodeId) => handleOpenConsultation(nodeId)}
       />
 

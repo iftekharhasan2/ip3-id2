@@ -141,13 +141,13 @@ export const PresentationSlider: React.FC<PresentationSliderProps> = ({
       {/* Main Hero Content Area */}
       <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-start">
         <div 
-          className={`max-w-2xl text-left p-6 sm:p-8 rounded-3xl bg-[#081220]/75 backdrop-blur-xl border border-slate-700/60 shadow-2xl shadow-black/60 space-y-5 transition-all duration-500 ease-out transform ${
+          className={`max-w-2xl text-left p-6 sm:p-8 md:p-10 rounded-2xl bg-[#081220]/85 backdrop-blur-xl border border-slate-700/60 shadow-2xl shadow-black/60 space-y-5 transition-all duration-500 ease-out transform ${
             isAnimating ? 'scale-[0.98] opacity-0 translate-y-3' : 'scale-100 opacity-100 translate-y-0'
           }`}
         >
           {/* Hero Title */}
           <h1
-            className="text-2xl sm:text-3xl lg:text-4xl font-sans font-bold tracking-tight leading-[1.2] transition-colors duration-300"
+            className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight leading-[1.2] transition-colors duration-300"
             style={{ color: activeTitleColor }}
           >
             {currentSlide.title}
@@ -156,11 +156,8 @@ export const PresentationSlider: React.FC<PresentationSliderProps> = ({
           {/* Subtitle */}
           {currentSlide.subtitle && (
             <p
-              className="text-sm sm:text-base font-sans font-light text-slate-300 leading-relaxed max-w-lg transition-colors duration-300 text-glow-subtle"
-              style={{ 
-                color: activeSubtitleColor,
-                textShadow: '0 0 16px rgba(255, 126, 103, 0.45), 0 0 30px rgba(255, 126, 103, 0.22)' 
-              }}
+              className="text-sm sm:text-base font-sans font-normal text-slate-300 leading-relaxed max-w-lg transition-colors duration-300"
+              style={{ color: activeSubtitleColor }}
             >
               {currentSlide.subtitle}
             </p>
@@ -173,9 +170,8 @@ export const PresentationSlider: React.FC<PresentationSliderProps> = ({
               style={{
                 backgroundColor: activeButtonBg,
                 color: activeButtonText,
-                boxShadow: `0 8px 24px -4px rgba(255, 126, 103, 0.4)`,
               }}
-              className="group px-6 py-3 rounded-full flex items-center gap-2 transition-all hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 text-xs font-mono font-bold uppercase tracking-wider cursor-pointer border border-[#ff7e67]/50"
+              className="group px-6 py-3 rounded-xl flex items-center gap-2 transition-all hover:brightness-105 active:translate-y-0 text-xs font-mono font-bold uppercase tracking-wider cursor-pointer border border-[#ff7e67]/50 shadow-lg shadow-black/30"
             >
               <span>{currentSlide.ctaText || 'Get Started'}</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

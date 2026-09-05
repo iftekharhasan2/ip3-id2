@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Facebook, Mail, Users } from 'lucide-react';
-import { TEAM_MEMBERS, TeamMember } from '../data/siteData';
+import { TEAM_MEMBERS, TeamMember } from '../../data/climateData';
 
 interface TeamSectionProps {
   onContactMember?: (member: TeamMember) => void;

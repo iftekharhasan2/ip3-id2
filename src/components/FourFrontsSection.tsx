@@ -5,7 +5,7 @@ import { useCMS } from '../context/CMSContext';
 export const FourFrontsSection: React.FC = () => {
   const { data } = useCMS();
   const research = data.researchSection || {
-    sectionTitle: "Research and Insights",
+    sectionTitle: "Thinking that ships.",
     headline: "Turning Institutional Pressure Into Actionable Architecture",
     quote: "When overlapping systems are understood, pressure stops being only a threat. It becomes material for design.",
     bodyText: "IP3 translates complexity into strategies, policy models, financing pathways, implementation plans, monitoring systems, digital tools, and decision frameworks until crisis becomes architecture.",
@@ -49,15 +49,17 @@ export const FourFrontsSection: React.FC = () => {
         <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12 relative z-10">
           {/* Separate Main Heading Block */}
           <div id="about-main-heading" className="max-w-5xl mx-auto text-center">
-            <h1 className="text-[36px] sm:text-[42px] md:text-[48px] font-extrabold text-slate-100 font-serif tracking-tight leading-tight drop-shadow-md">
-              {research.sectionTitle && research.sectionTitle !== "Research and Insights" ? research.sectionTitle : "Institutional Deck"}
+            <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-slate-100 font-serif tracking-tight leading-tight drop-shadow-md">
+              {research.sectionTitle && research.sectionTitle !== "Research and Insights" && research.sectionTitle !== "Institutional Deck"
+                ? research.sectionTitle
+                : "Thinking that ships."}
             </h1>
           </div>
 
           {/* Publications & Knowledge Matrix Card */}
           <div 
             id="publications-section"
-            className="w-full bg-[#081220]/90 border border-slate-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-6"
+            className="w-full bg-[#081220]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-6"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -65,12 +67,15 @@ export const FourFrontsSection: React.FC = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#ff7e67]/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="flex flex-wrap items-center justify-between gap-3 relative z-10">
-              <div className="flex items-center gap-2">
-                <span className={`w-2.5 h-2.5 rounded-full bg-[#ff7e67] ${isPaused ? '' : 'animate-pulse'}`} />
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-bold">
-                  PUBLICATIONS &amp; KNOWLEDGE DISSEMINATION
-                </span>
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ff7e67]" />
+                <h3 className="font-mono text-[28px] sm:text-[34px] md:text-[40px] uppercase tracking-[0.15em] text-[#ff7e67] font-bold leading-tight">
+                  INSTITUTIONAL DECK
+                </h3>
               </div>
+              <span className="text-xs text-slate-400 font-mono uppercase tracking-wider hidden sm:inline">
+                Publications &amp; Knowledge Dissemination
+              </span>
             </div>
 
             {/* Unified Merged Matrix Card */}
@@ -169,20 +174,16 @@ export const FourFrontsSection: React.FC = () => {
       {/* Section 2: Publications & Reform Architecture Showcase */}
       <section id="publications" className="relative bg-[#050a12] text-slate-100 py-8 md:py-12 px-4 sm:px-6 lg:px-10 border-t border-slate-800 font-sans overflow-hidden">
         <div className="max-w-7xl mx-auto space-y-6">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 font-serif tracking-tight text-center">
-            Publications
-          </h1>
-
-          <div className="w-full bg-[#081220]/90 border border-slate-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-6">
+          <div className="w-full bg-[#081220]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl relative overflow-hidden ring-1 ring-slate-800/80 backdrop-blur-sm space-y-6">
             {/* Subtle Ambient Accent Glow */}
             <div className="absolute top-0 left-0 w-96 h-96 bg-[#2dd4bf]/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="flex flex-wrap items-center justify-between gap-3 relative z-10">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ff7e67] animate-pulse" />
-                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-bold">
-                  PUBLICATIONS &amp; REFORM ARTIFACTS SHOWCASE
-                </span>
+              <div className="flex items-center gap-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ff7e67]" />
+                <h3 className="font-mono text-[28px] sm:text-[34px] md:text-[40px] uppercase tracking-[0.15em] text-[#ff7e67] font-bold leading-tight">
+                  PUBLICATIONS
+                </h3>
               </div>
             </div>
 

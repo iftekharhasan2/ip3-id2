@@ -71,9 +71,9 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
   },
   institutions: {
     id: 'institutions',
-    label: 'INSTITUTIONS',
-    category: 'Governance & Mandates',
-    tagline: 'Public Sector Capacity & Organizational Architecture',
+    label: 'From poly-crises to poly-solutions',
+    category: 'Systemic Resolution Engine',
+    tagline: 'Translating complex systemic crises into coordinated actionable architectures',
     description: 'Transforming institutional capacity, organizational structures, and regulatory mandates to execute modern complex public missions.',
     extendedOverview: 'We architect institutional operating models that eliminate bureaucratic gridlock. Through restructuring workflows, establishing change coalitions, and building sovereign digital capabilities, we prepare ministries, regulators, and civic bodies for continuous systemic adaptation.',
     color: '#ff7e67',
@@ -98,8 +98,8 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
   },
   policy: {
     id: 'policy',
-    label: 'POLICY',
-    category: 'Strategic Intelligence',
+    label: 'Translation not theory',
+    category: 'Implementation Framework',
     tagline: 'Foresight, Regulatory Design & Legislative Engineering',
     description: 'Translating political and societal priorities into precise, actionable policy frameworks engineered for real-world viability.',
     extendedOverview: 'Policy without implementation architecture remains wishful thinking. IP3 crafts policy documents that incorporate regulatory tech specs, economic impact simulations, and legal enforcement roadmaps from day one.',
@@ -125,34 +125,34 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
   },
   evidence: {
     id: 'evidence',
-    label: 'EVIDENCE',
-    category: 'Analytics & Diagnostics',
-    tagline: 'Econometric Modeling, Data Telemetry & Spatial Intelligence',
-    description: 'Anchoring decision-making in rigorous quantitative research, systemic causal models, and longitudinal empirical feedback.',
-    extendedOverview: 'We dismantle anecdotal governance through predictive analytics, econometric benchmarking, and continuous sensor/field data. Our models highlight latent risks and uncover high-multiplier investment interventions.',
-    color: '#ff7e67',
+    label: 'A convenor between worlds.',
+    category: 'Neutral Convening Ecosystem',
+    tagline: 'Multi-Stakeholder Alignment, Institutional Coalitions & Global South Bridges',
+    description: 'Reform never belongs to a single actor. IP3 sits between governments, development partners, civil society, academia, the private sector, communities, and technology providers — aligning incentives, evidence, and delivery capacity around shared outcomes.',
+    extendedOverview: 'IP3 functions as a neutral, trusted bridge across sectors, ministries, and jurisdictions. We convene working groups, policy labs, and international coalitions to overcome coordination failure and turn fractured agendas into cohesive national movements.',
+    color: '#34d399',
     connections: ['institutions', 'finance', 'core'],
     keyCapabilities: [
-      'Econometric & Causal Impact Evaluation',
-      'Geospatial & Climate Risk Modeling',
-      'Real-Time Public Data Aggregation Pipelines',
-      'Agent-Based System Dynamic Simulations',
-      'Cost-Benefit & Social Return on Investment (SROI)'
+      'Multi-Stakeholder Accord Compacts',
+      'Neutral Working Group Charters',
+      'Cross-Ministerial Alignment Frameworks',
+      'Public-Private Coalition Engineering',
+      'Evidence-to-Action Bilateral Bridges'
     ],
     metrics: [
-      { label: 'Data Fidelity', value: '99.9%', subtext: 'Validated observational dataset accuracy' },
-      { label: 'Predictive Horizon', value: '10 Years', subtext: 'Multi-scenario demographic projections' },
-      { label: 'Model Confidence', value: '95% CI', subtext: 'Empirically calibrated statistical models' }
+      { label: 'Convening Depth', value: '7+ Sectors', subtext: 'Public, private, civic, multilateral' },
+      { label: 'Alliance Speed', value: '45-Day', subtext: 'Coalition formulation sprints' },
+      { label: 'Consensus Rate', value: '94%', subtext: 'Cross-ministerial alignment index' }
     ],
     caseStudyHighlight: {
-      title: 'National Urban Resilience Diagnostic',
-      context: 'Spatial data modeling for metropolitan zones vulnerable to extreme flood surges.',
-      outcome: 'Identified $4.2B in prioritized infrastructure investments that mitigate 85% of projected economic damages.'
+      title: 'Tripartite National Energy Transition Coalition',
+      context: 'Aligning sovereign ministries, independent power producers, and global climate funds.',
+      outcome: 'Brokered 15-year clean energy transition pact unblocking $3.2B in blended capital commitments.'
     }
   },
   technology: {
     id: 'technology',
-    label: 'TECHNOLOGY',
+    label: 'Thinking that ships.',
     category: 'Digital Public Infrastructure',
     tagline: 'Open Protocols, Digital Identity & Sovereign Cloud Systems',
     description: 'Engineering the digital backbone for modern state capacity, interoperable public data rails, and citizen-centric services.',
@@ -179,7 +179,7 @@ export const SYSTEM_NODES: Record<SystemNodeId, SystemNodeInfo> = {
   },
   finance: {
     id: 'finance',
-    label: 'FINANCE',
+    label: 'Thinking that ships.',
     category: 'Capital Orchestration',
     tagline: 'Blended Finance, Green Transition & Public Investment Strategy',
     description: 'Structuring innovative financing vehicles, catalytic public-private partnerships, and ESG-aligned capital pipelines.',

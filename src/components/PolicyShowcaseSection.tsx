@@ -40,25 +40,19 @@ export const PolicyShowcaseSection: React.FC = () => {
             className="lg:col-span-7 flex flex-col max-w-2xl"
           >
             {/* Eyebrow */}
-            <span 
-              className="text-sm sm:text-base font-normal text-slate-300 mb-2 sm:mb-3 tracking-normal text-glow-subtle"
-              style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.45), 0 0 24px rgba(255, 126, 103, 0.22)' }}
-            >
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-semibold mb-2 sm:mb-3">
               An Institution for
             </span>
 
             {/* Main Serif Display Headline */}
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] font-normal tracking-tight text-[#ff7e67] mb-6 drop-shadow-sm">
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] leading-[1.08] font-normal tracking-tight text-[#ff7e67] mb-6">
               Policy Advisory<br />
               and Action<br />
               Research
             </h2>
 
             {/* Description Paragraph */}
-            <p 
-              className="text-slate-300 text-sm sm:text-[15px] lg:text-base leading-[1.68] font-normal text-left max-w-xl text-pretty text-glow-subtle"
-              style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.38), 0 0 28px rgba(255, 126, 103, 0.18)' }}
-            >
+            <p className="text-slate-300 text-sm sm:text-[15px] lg:text-base leading-[1.7] font-normal text-left max-w-xl text-pretty">
               We deliver expert consultancy in Economic and Environmental Policy, Government Services, and Education, advancing innovation through sound research, creative data models, and tailored digital strategies. Our multidisciplinary services cover the full lifecycle of public policy, program delivery, and organizational design—from strategic planning and implementation to evaluation—ensuring sustainable and impactful results.
             </p>
           </motion.div>
@@ -87,27 +81,21 @@ export const PolicyShowcaseSection: React.FC = () => {
             className="lg:col-span-7 flex flex-col max-w-2xl order-1 lg:order-2"
           >
             {/* Eyebrow */}
-            <span 
-              className="text-sm sm:text-base font-normal text-slate-300 mb-3 tracking-normal text-glow-subtle"
-              style={{ textShadow: '0 0 12px rgba(255, 126, 103, 0.45), 0 0 24px rgba(255, 126, 103, 0.22)' }}
-            >
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff7e67] font-semibold mb-3">
               IP3 Consulting
             </span>
 
             {/* Heading enclosed in Surface Card with Border Default */}
             <div className="mb-6 inline-block">
-              <div className="bg-[#0c192c]/95 border border-slate-800 backdrop-blur-md rounded-xl sm:rounded-2xl px-5 py-3.5 sm:px-7 sm:py-4 shadow-[0_12px_35px_rgba(8,18,32,0.7)] hover:border-[#ff7e67]/40 transition-colors">
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.2rem] font-semibold text-slate-100 tracking-tight leading-[1.25]">
+              <div className="bg-[#081220] border border-slate-800 rounded-xl px-5 py-3.5 sm:px-7 sm:py-4 shadow-xl">
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.2rem] font-serif font-semibold text-slate-100 tracking-tight leading-[1.25]">
                   A Hub for Innovation and<br className="hidden sm:inline" /> Global Expertise
                 </h3>
               </div>
             </div>
 
             {/* Description Paragraph */}
-            <p 
-              className="text-slate-300 text-sm sm:text-[15px] lg:text-base leading-[1.68] font-normal text-left max-w-xl text-pretty text-glow-subtle"
-              style={{ textShadow: '0 0 14px rgba(255, 126, 103, 0.38), 0 0 28px rgba(255, 126, 103, 0.18)' }}
-            >
+            <p className="text-slate-300 text-sm sm:text-[15px] lg:text-base leading-[1.7] font-normal text-left max-w-xl text-pretty">
               Bringing together experts from a range of disciplines who understand the intricate balance between prosperity and the planet. Our multi-sectoral expertise empowers governments, development agencies, philanthropies, the private sector, and local communities to co-create actionable policies and investable programs that center human well-being and planetary health. We help our partners reimagine economic policy as a tool for sustainable development, social justice, and ecological regeneration.
             </p>
           </motion.div>

@@ -43,9 +43,9 @@ export const EightSystemsSection: React.FC = () => {
   };
 
   return (
-    <section
+    <div
       id="eight-systems-master-section"
-      className="w-full bg-[#050a12] text-slate-100 flex flex-col relative overflow-hidden pt-0 pb-16 sm:pb-24"
+      className="w-full text-slate-100 flex flex-col relative overflow-hidden"
     >
       {/* Main View Display */}
       <div className="w-full relative z-10">
@@ -82,7 +82,7 @@ export const EightSystemsSection: React.FC = () => {
           />
         )}
       </AnimatePresence>
-    </section>
+    </div>
   );
 };
 
