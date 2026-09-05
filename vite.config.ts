@@ -41,6 +41,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       host: '0.0.0.0',
+      allowedHosts: true,
       watch: { ignored: ['**/.env', '**/.env.*'] },
       // Dev only: forward /api/* to the backend running locally, so
       // development stays same-origin and never exercises CORS.

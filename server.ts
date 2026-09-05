@@ -463,7 +463,7 @@ async function startServer() {
 
   if (isDev) {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { middlewareMode: true, allowedHosts: true },
       appType: 'custom',
     });
 
@@ -484,7 +484,9 @@ async function startServer() {
       }
     });
   } else {
-    const distPath = path.resolve(__dirname, 'dist');
+    const distPath = fs.existsSync(path.resolve(__dirname, 'index.html'))
+      ? __dirname
+      : path.resolve(process.cwd(), 'dist');
     app.use(express.static(distPath));
 
     app.use((req, res) => {

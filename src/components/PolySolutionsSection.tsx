@@ -240,7 +240,7 @@ export const PolySolutionsSection: React.FC<PolySolutionsSectionProps> = ({
         </>
       )}
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="w-full relative z-10">
         {/* Unified Poly-Solutions & Eight Systems Master Architecture Card (Shown only when button is clicked) */}
         <AnimatePresence>
           {isOpen && (

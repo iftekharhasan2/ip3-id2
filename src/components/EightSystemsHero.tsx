@@ -74,14 +74,22 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
         id={`system-pill-${system.id}`}
         type="button"
         onClick={() => onSelectSystem(system)}
-        onMouseEnter={() => setHoveredSystemId(system.id)}
-        onMouseLeave={() => setHoveredSystemId(null)}
-        className={`group relative w-full flex flex-col justify-between text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 cursor-pointer select-none outline-none border ${
+        onMouseEnter={() => {
+          if (!isSelected) {
+            setHoveredSystemId(system.id);
+          }
+        }}
+        onMouseLeave={() => {
+          if (!isSelected) {
+            setHoveredSystemId(null);
+          }
+        }}
+        className={`relative w-full flex flex-col justify-between text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 cursor-pointer select-none outline-none border ${
           isSelected
             ? 'bg-[#0f1d33] border-[#ff7e67] shadow-xl ring-1 ring-[#ff7e67]/40 text-white'
             : isHovered
-            ? 'bg-[#0d1a2d] border-slate-700 text-white shadow-lg -translate-y-0.5'
-            : 'bg-[#081324]/85 hover:bg-[#0c182b] border-slate-800/90 text-slate-200 hover:text-white'
+            ? 'group bg-[#0d1a2d] border-slate-700 text-white shadow-lg -translate-y-0.5'
+            : 'group bg-[#081324]/85 hover:bg-[#0c182b] border-slate-800/90 text-slate-200 hover:text-white'
         }`}
         style={{
           boxShadow: isSelected
@@ -95,15 +103,23 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
         <div className="flex items-center justify-between w-full mb-3">
           <div className="flex items-center gap-2 min-w-0">
             <span className="relative flex h-2.5 w-2.5 items-center justify-center shrink-0">
-              {(isSelected || isHovered) && (
+              {isSelected ? (
                 <span
                   className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
                   style={{
                     backgroundColor: system.color,
-                    animationDuration: isHovered ? '1.5s' : '2.5s',
+                    animationDuration: '2.5s',
                   }}
                 />
-              )}
+              ) : isHovered ? (
+                <span
+                  className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                  style={{
+                    backgroundColor: system.color,
+                    animationDuration: '1.5s',
+                  }}
+                />
+              ) : null}
               <span
                 className={`relative inline-flex rounded-full h-2 w-2 ${glowClass}`}
                 style={{
@@ -131,12 +147,16 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
         </div>
 
         {/* Card Title */}
-        <h4 className="font-sans text-sm sm:text-base font-bold text-slate-100 group-hover:text-white leading-snug tracking-tight">
+        <h4 className={`font-sans text-sm sm:text-base font-bold leading-snug tracking-tight ${
+          isSelected ? 'text-white' : 'text-slate-100 group-hover:text-white'
+        }`}>
           {system.name}
         </h4>
 
         {/* Card Summary Description */}
-        <p className="text-[11.5px] text-slate-400 font-light leading-relaxed mt-2 line-clamp-2 group-hover:text-slate-300">
+        <p className={`text-[11.5px] font-light leading-relaxed mt-2 line-clamp-2 ${
+          isSelected ? 'text-slate-300' : 'text-slate-400 group-hover:text-slate-300'
+        }`}>
           {system.summary}
         </p>
       </button>
@@ -144,7 +164,7 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto select-text transition-all duration-300">
+    <div className="relative w-full select-text transition-all duration-300">
       {/* Background ambient lighting subtle glow */}
       <div
         className="pointer-events-none absolute -left-20 top-24 w-72 h-72 rounded-full opacity-20 blur-3xl"
@@ -155,13 +175,13 @@ export const EightSystemsHero: React.FC<EightSystemsHeroProps> = ({
       />
 
       {/* Main Section Header */}
-      <div className="space-y-6 sm:space-y-8">
+      <div className="space-y-6 sm:space-y-8 pt-[20px] pb-[28px] px-0 mx-0">
         {/* Exact Typography Clone */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-1"
+          className="space-y-1 w-[710px] pl-[29px] pt-[29px] pb-[11px] max-w-full"
         >
           <h1
             className={`${getFontClass()} text-4xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.08] sm:leading-[1.06] tracking-[-0.025em] text-slate-100 font-normal`}
